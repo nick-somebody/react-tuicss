@@ -1,0 +1,25 @@
+.tui-modal-container {
+  display: none;
+}
+.tui-modal-container.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tui-modal {
+  display: block;
+  
+  position: unset;
+  left: unset;
+  right: unset;
+  top: unset;
+}
+.tui-modal .tui-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 400px;
+}
+.tui-modal .tui-modal-close-button {
+  align-self: end;
+}

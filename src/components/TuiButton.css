@@ -1,0 +1,19 @@
+button.tui-button .tui-button-inner {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+button.tui-button:focus .tui-button-inner {
+  border-left: 10px solid white;
+  border-right: 10px solid white;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+button.tui-button {
+  position: relative;
+}
+button.tui-button.fill {
+  width: 100%;
+}
