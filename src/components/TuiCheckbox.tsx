@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes } from "react";
-import { checkboxClass } from "../helpers";
+import { checkboxClass, optionSpanClass } from "../helpers";
 import TuiInput from "./TuiInput";
 import "./TuiCheckbox.css"
 
@@ -12,7 +12,7 @@ function TuiCheckbox(props: TuiCheckboxProps) {
     <label className={ checkboxClass(props) }>
       { props.label }
       <TuiInput {...props} type="checkbox" />
-      <span className={ props.disabled ? 'disabled' : '' }></span>
+      <span className={ optionSpanClass(props) }></span>
     </label>
   )
 }
