@@ -23,6 +23,7 @@ const inputClassNameMaker = (baseClass: string) => {
 export const inputClass = inputClassNameMaker("tui-input");
 export const checkboxClass = inputClassNameMaker("tui-checkbox");
 export const radioClass = inputClassNameMaker("tui-radio");
+export const optionSpanClass = inputClassNameMaker("tui-option-span");
 export const fieldsetClass = inputClassNameMaker("tui-fieldset");
 export const selectClass = inputClassNameMaker("tui-input");
 
@@ -30,4 +31,13 @@ export const selectClass = inputClassNameMaker("tui-input");
 export const getId = () => {
   id +=1;
   return id;
+}
+
+export function propFilter<T>(props: T, keys: (keyof T)[]) {
+  const newProps = {...props}
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    delete newProps[key];
+  }
+  return newProps;
 }

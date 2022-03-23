@@ -4,7 +4,7 @@ import { Color, DarkBackground, MildColor } from "../types/enums";
 
 function Forecast() {
   return (
-    <>
+    <div className="tui-screen-800-600 bordered black-255">
       <div className="red-168 full-width white-text" style={ { padding: "0px 10px" }}>
             FORECAST 1.0
         </div>
@@ -148,7 +148,7 @@ function Forecast() {
         <div className="red-168 full-width white-text" style={ { padding: "0px 10px" } }>
             FORECAST 1.0
         </div>
-    </>
+    </div>
   )
 }
 

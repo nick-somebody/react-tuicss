@@ -5,6 +5,7 @@ import TuiChart from "../components/TuiChart";
 function Charts() {
   return (
     <div className="center">
+      <h2>Charts</h2>
       <div style={ { marginTop: "50px" } }></div>
 
       <div className="tui-window black-168 left-align">
