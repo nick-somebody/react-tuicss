@@ -2,33 +2,39 @@ import React, { HtmlHTMLAttributes } from "react";
 import { Color, MildColor } from "../types/enums";
 import "./TuiCode.css"
 
-
-export type TuiButtonProps = HtmlHTMLAttributes<HTMLPreElement> & {
+type TuiCodeProps = HtmlHTMLAttributes<HTMLPreElement> & {
   color?: Color | MildColor;
   textColor?: Color | MildColor;
   code: string;
 }
 
-function TuiCode (props: TuiButtonProps) {
+function TuiCode (
+  {
+    color,
+    textColor,
+    code,
+    ...props
+  }: TuiCodeProps
+) {
 
   const getClassName = () => {
     const classes = props.className?.split(" ") ?? [];
     classes.push("tui-code")
-    classes.push(props.color ?? MildColor.White);
-    classes.push(`${props.textColor ?? MildColor.Black}-text`);
+    classes.push(color ?? MildColor.White);
+    classes.push(`${textColor ?? MildColor.Black}-text`);
     return classes.join(" ");
   }
 
   return (
     <pre className={getClassName()} {...props}>
       <code>
-        {props.code}
+        {code}
       </code>
     </pre>
   )
 }
 
-export function TuiCodeDark(props: TuiButtonProps) {
+function TuiCodeDark(props: TuiCodeProps) {
 
   return TuiCode({
     ...props,
@@ -37,7 +43,7 @@ export function TuiCodeDark(props: TuiButtonProps) {
   })
 }
 
-export function TuiCodeLight(props: TuiButtonProps) {
+function TuiCodeLight(props: TuiCodeProps) {
 
   return TuiCode({
     ...props,
@@ -46,4 +52,8 @@ export function TuiCodeLight(props: TuiButtonProps) {
   })
 }
 
-export default TuiCode;
+export default {
+  Custom: TuiCode,
+  Dark: TuiCodeDark,
+  Light: TuiCodeLight,
+};
