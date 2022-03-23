@@ -1,14 +1,19 @@
 .tui-modal-container {
   display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
 }
 .tui-modal-container.active {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .tui-modal {
   display: block;
-  
   position: unset;
   left: unset;
   right: unset;

@@ -1,12 +1,15 @@
 import React from "react";
 import TuiModal from "../composites/TuiModal";
 
-function Modals() {
+function Modals({ parent }: { parent?: HTMLElement}) {
 
   return (
-    <TuiModal modalTitle="STEVE">
-      content
-    </TuiModal>
+    <>
+      <h3>Modals</h3>
+      <TuiModal modalTitle="STEVE" parent={parent}>
+        content
+      </TuiModal>
+    </>
   )
 }
 

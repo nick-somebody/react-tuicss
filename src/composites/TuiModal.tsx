@@ -28,10 +28,7 @@ function TuiModal({ children, buttonProps, parent, modalTitle }: TuiModalProps) 
     setOpen(!open)
   }
   const classNamer = () => {
-    const classes = ["tui-modal-container"]
-    if (open) {
-      classes.push("active");
-    }
+    const classes = ["tui-modal-container", "active"]
     return classes.join(" ");
   }
   return (
