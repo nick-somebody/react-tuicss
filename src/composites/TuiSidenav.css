@@ -1,0 +1,7 @@
+.tui-sidenav.absolute {
+  top: unset;
+  height: auto;
+}
+.tui-sidenav ul {
+  margin-top: 0;
+}
