@@ -10,3 +10,6 @@ There were some additions made for accessibility reasons, to make the focus stat
 
 ### TODO
 - Click away to dismiss sidenav
+- more a11y checking
+- full keyboard controls for all components with focus states
+- better documentation

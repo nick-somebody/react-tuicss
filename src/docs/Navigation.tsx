@@ -4,6 +4,7 @@ import TuiDropdown from "../composites/TuiDropdown";
 import TuiNavbar from "../composites/TuiNavbar";
 import TuiSidenav from "../composites/TuiSidenav";
 import TuiWindow from "../components/TuiWindow";
+import TuiDatetime from "../composites/TuiDatetime";
 
 function Navigation() {
 
@@ -98,7 +99,7 @@ function Navigation() {
               <span className="tui-shortcut">F10</span>
             </TuiMenuItem>
           </TuiDropdown>
-          {/* add dropdown and other shit */}
+          <TuiDatetime format="dd MMM yyyy hh:mm:ss " />
         </TuiNavbar>
 
         <TuiWindow>
