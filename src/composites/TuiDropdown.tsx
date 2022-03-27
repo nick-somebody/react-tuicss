@@ -1,25 +1,6 @@
 import React from "react";
 import "./TuiDropdown.css"
 
-type TuiDropdownItemProps = {
-  children: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  href?: string;
-}
-
-export function TuiDropdownItem({ children, onClick, href }: TuiDropdownItemProps) {
-  const hasClicker = !!onClick;
-  const hasLink = !!href;
-  const noClickerOrLink = !hasClicker && !hasLink;
-  return (
-    <li>
-      { hasClicker && <button onClick={ onClick }>{ children }</button>}
-      { hasLink && <a href={href}>{ children }</a>}
-      { noClickerOrLink && <div>{ children }</div>}
-    </li>
-  )
-}
-
 type TuiDropdownProps = {
   dropDownLabel: string | React.ReactNode;
   children: React.ReactNode;

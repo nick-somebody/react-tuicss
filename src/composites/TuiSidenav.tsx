@@ -21,7 +21,9 @@ function TuiSidenav({ children, buttonText }: TuiSidenavProps) {
       >{active ? 'x' : '≡'}{ buttonText }</button>
       { active && createPortal((
         <nav className="tui-sidenav active absolute">
-          { children }
+          <ul>
+            { children }
+          </ul>
         </nav>
         ),
         ref.current?.parentElement ?? document.body

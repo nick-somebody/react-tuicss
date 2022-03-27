@@ -68,3 +68,9 @@ export enum Background {
   YellowWhite = "tui-bg-yellow-white",
   OrangeWhite = "tui-bg-orange-white",
 }
+
+export enum Position {
+  Relative = "relative",
+  Absolute = "absolute",
+  Static = "static"
+}
