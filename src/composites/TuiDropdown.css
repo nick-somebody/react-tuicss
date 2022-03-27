@@ -1,0 +1,8 @@
+.tui-dropdown-content ul li button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+}

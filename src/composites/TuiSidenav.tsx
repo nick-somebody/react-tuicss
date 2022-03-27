@@ -13,12 +13,12 @@ function TuiSidenav({ children, buttonText }: TuiSidenavProps) {
   const ref = useRef<HTMLButtonElement>(null)
 
   return (
-    <>
+    <li className="tui-sidenav-li">
       <button
         className="tui-sidenav-button"
         onClick={() => setActive(!active)}
         ref={ref}
-      >{buttonText ?? '≡' }</button>
+      >{active ? 'x' : '≡'}{ buttonText }</button>
       { active && createPortal((
         <nav className="tui-sidenav active absolute">
           { children }
@@ -26,7 +26,7 @@ function TuiSidenav({ children, buttonText }: TuiSidenavProps) {
         ),
         ref.current?.parentElement ?? document.body
       )}
-    </>
+    </li>
   )
 }
 

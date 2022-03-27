@@ -1,4 +1,5 @@
 import React from "react";
+import TuiDropdown, { TuiDropdownItem } from "../composites/TuiDropdown";
 import TuiNavbar from "../composites/TuiNavbar";
 import TuiSidenav from "../composites/TuiSidenav";
 
@@ -63,6 +64,49 @@ function Navigation() {
             </TuiSidenav>
           }
         >
+          <TuiDropdown dropDownLabel={<div><span className="red-168-text">F</span>ile</div>}>
+            <TuiDropdownItem onClick={ () => {}}>
+              <span className="red-168-text">N</span>ew
+            </TuiDropdownItem>
+            <TuiDropdownItem href="#!">
+              <span className="red-168-text">O</span>pen...
+              <span className="tui-shortcut">F3</span>
+            </TuiDropdownItem>
+            <TuiDropdownItem href="#!">
+              <span className="red-168-text">S</span>ave
+              <span className="tui-shortcut">F2</span>
+            </TuiDropdownItem>
+            <TuiDropdownItem href="#!">
+              S<span className="red-168-text">a</span>ve as...
+            </TuiDropdownItem>
+            <TuiDropdownItem href="#!">
+              Save a<span className="red-168-text">l</span>l
+            </TuiDropdownItem>
+            <div className="tui-black-divider"></div>
+
+            <TuiDropdown block={true} dropDownLabel={
+              <div>
+                <span className="right">►</span>
+                <span className="red-168-text">M</span>ore
+              </div>
+            }>
+              <TuiDropdownItem href="#!">
+                <span className="red-168-text">C</span>hange dir...
+              </TuiDropdownItem>
+              <TuiDropdownItem href="#!">
+                <span className="red-168-text">P</span>rint
+              </TuiDropdownItem>
+              <TuiDropdownItem href="#!">
+                <span className="red-168-text">D</span>OS shell
+              </TuiDropdownItem>
+            </TuiDropdown>
+
+            <div className="tui-black-divider"></div>
+            <TuiDropdownItem href="#!">
+              <span className="red-168-text">Q</span>uit
+              <span className="tui-shortcut">F10</span>
+            </TuiDropdownItem>
+          </TuiDropdown>
           {/* add dropdown and other shit */}
         </TuiNavbar>
 

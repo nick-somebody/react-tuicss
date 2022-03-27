@@ -5,3 +5,14 @@
 .tui-sidenav ul {
   margin-top: 0;
 }
+button.tui-sidenav-button {
+  border-radius: 0;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-top: none;
+  border-bottom: none;
+}
+.tui-nav ul li.tui-sidenav-li {
+  padding: 0;
+  margin-left: 0;
+}

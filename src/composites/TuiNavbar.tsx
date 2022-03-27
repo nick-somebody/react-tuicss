@@ -1,17 +1,19 @@
-import React from "react";
-import type TuiSidenav from "./TuiSidenav";
+import React, { Children } from "react";
+import "./TuiNavbar.css";
 
 type TuiNavbarProps = {
   sidenav?: React.ReactNode;
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
-function TuiNavbar({ sidenav }: TuiNavbarProps) {
+function TuiNavbar({ sidenav, children }: TuiNavbarProps) {
 
   return (
     <nav className="tui-nav absolute">
-      { sidenav }
-      
+      <ul>
+        { sidenav }
+        { children }
+      </ul>
     </nav>
   )
 }
