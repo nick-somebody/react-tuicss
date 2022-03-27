@@ -3,6 +3,7 @@ import TuiMenuItem from "../components/TuiMenuItem";
 import TuiDropdown from "../composites/TuiDropdown";
 import TuiNavbar from "../composites/TuiNavbar";
 import TuiSidenav from "../composites/TuiSidenav";
+import TuiWindow from "../components/TuiWindow";
 
 function Navigation() {
 
@@ -99,6 +100,28 @@ function Navigation() {
           </TuiDropdown>
           {/* add dropdown and other shit */}
         </TuiNavbar>
+
+        <TuiWindow>
+          <div>asdsadasd</div>
+          <div>asd</div>
+          <div>asd</div>
+          <div>asda</div>
+          <div>sd</div>
+        </TuiWindow>
+        <TuiWindow>
+          <div>asdsadasd</div>
+          <div>asd</div>
+          <div>asd</div>
+          <div>asda</div>
+          <div>sd</div>
+        </TuiWindow>
+        <TuiWindow>
+          <div>asdsadasd</div>
+          <div>asd</div>
+          <div>asd</div>
+          <div>asda</div>
+          <div>sd</div>
+        </TuiWindow>
       </div>
     </>
   )
