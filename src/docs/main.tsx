@@ -4,6 +4,7 @@ import "tuicss"
 import "../lib/style.css"
 import TuiDivider from '../components/TuiDivider'
 import { Background } from '../types/enums'
+import TuiBackground from '../components/TuiBackground'
 import Bios from './Bios'
 import Buttons from './Buttons'
 import Charts from './Charts';
@@ -12,10 +13,11 @@ import Forecast from './Forecast';
 import Inputs from './Inputs';
 import Modals from './Modals';
 import Navigation from './Navigation';
+import Layout from './Layout'
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className={Background.BlueWhite}>
+    <TuiBackground color={Background.BlueWhite}>
       <h1 className="center" aria-label="React TUI">
         ===========react-tui===========
       </h1>
@@ -34,7 +36,8 @@ ReactDOM.render(
       <h3>Forecast</h3>
       <Forecast />
       <Navigation />
-    </div>
+      <Layout />
+    </TuiBackground>
   </React.StrictMode>,
   document.getElementById('root')
 )
