@@ -6,17 +6,17 @@ type TuiDatetimeProps = {
 }
 
 function TuiDatetime(props: TuiDatetimeProps) {
-  const [d, setD] = useState("");
+  const [dateString, setDateString] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setD(format(new Date(), props.format))
+      setDateString(format(new Date(), props.format))
     }, 1000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <span className="tui-datetime">{d}</span>
+    <span className="tui-datetime">{dateString}</span>
   )
 }
 

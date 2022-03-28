@@ -6,6 +6,7 @@ import "./TuiButton.css";
 export type TuiButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   color?: Color | MildColor;
   textColor?: Color | MildColor;
+  light?: boolean;
   fullWidth?: boolean;
 }
 
@@ -13,6 +14,7 @@ function TuiButton(
   {
     textColor,
     fullWidth,
+    light,
     color,
     ...props
   }: TuiButtonProps
@@ -23,6 +25,7 @@ function TuiButton(
     if (props.disabled) { classes.push("disabled"); }
     if (color) { classes.push(color); }
     if (textColor) { classes.push(`${textColor}-text`); }
+    if (light) { classes.push("light"); }
     if (fullWidth) { classes.push("fill"); }
     return classes.join(" ");
   }
