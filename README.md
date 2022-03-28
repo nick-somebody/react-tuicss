@@ -9,10 +9,10 @@ There were some additions made for accessibility reasons, to make the focus stat
 ```
 
 ### TODO
-- Click away to dismiss sidenav
-- more a11y checking
-- full keyboard controls for all components with focus states
-- better documentation
-- build a label width filler for formsets eg `Input...` how many dots to fill for a nice looking form
-- fix bios example, overflow and refactor
-- fix layout docs
+- [ ] Click away to dismiss sidenav
+- [ ] more a11y checking
+- [ ] full keyboard controls for all components with focus states
+- [ ] better documentation
+- [ ] build a label width filler for formsets eg `Input...` how many dots to fill for a nice looking form
+- [ ] fix bios example, overflow and refactor
+- [ ] fix layout docs
