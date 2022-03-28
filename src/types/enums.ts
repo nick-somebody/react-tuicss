@@ -70,7 +70,8 @@ export enum Background {
 }
 
 export enum Position {
-  Relative = "relative",
   Absolute = "absolute",
+  Fixed = "fixed",
+  Relative = "relative",
   Static = "static"
 }
