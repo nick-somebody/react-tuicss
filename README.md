@@ -20,3 +20,4 @@ If you wish to contribute, that's good. If you have feature requests please rais
 - [ ] build a label width filler for formsets eg `Input...` how many dots to fill for a nice looking form
 - [ ] fix bios example, overflow and refactor
 - [ ] fix layout docs
+- [ ] pick linter and setup
