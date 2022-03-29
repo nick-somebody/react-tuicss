@@ -11,6 +11,8 @@ I have many things I want to do with this, I will use this in my own project soo
 If you wish to contribute, that's good. If you have feature requests please raise issues and I will respond as time for hobby projects permits.
 
 ### TODO
+- [ ] tests
+- [ ] actions/deploy/publish
 - [ ] Click away to dismiss sidenav
 - [ ] more a11y checking
 - [ ] full keyboard controls for all components with focus states
