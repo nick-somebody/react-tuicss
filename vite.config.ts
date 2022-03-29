@@ -13,7 +13,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "lib/main.ts"),
-      name: "ReactTui",
+      name: "react-tui",
       fileName: (format) => `react-tui.${format}.js`
     },
     rollupOptions: {

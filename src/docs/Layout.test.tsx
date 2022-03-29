@@ -10,7 +10,7 @@ function toJson(component: renderer.ReactTestRenderer) {
   return result as renderer.ReactTestRendererJSON
 }
 
-test('Link changes the class when hovered', () => {
+test('Render layout as expected', () => {
   const component = renderer.create(
     <Layout />,
   )
