@@ -8,20 +8,20 @@ function Codes() {
     <>
       <h2 className="center">Code</h2>
       <h3>Dark</h3>
-      <TuiCode.Dark code={`// example
+      <TuiCode.Dark code={`<TuiCode.Dark code={\`// example
 function() {
   console.log("Asdasdsad")
-}`} />
+\`} />`} />
       <h3>Light</h3>
-      <TuiCode.Light code={`// example
+      <TuiCode.Light code={`<TuiCode.Light code={\`// example
 function() {
   console.log("Asdasdsad")
-}`} />
+\`} />`} />
       <h3>Custom</h3>
-      <TuiCode.Custom color={ Color.White } textColor={MildColor.Blue} code={`// example
+      <TuiCode.Custom color={ Color.White } textColor={MildColor.Blue} code={`<TuiCode.Custom color={ Color.White } textColor={MildColor.Blue} code={\`// example
 function() {
   console.log("Asdasdsad")
-}`} />
+\`} />`} />
     </>
   )
 }
