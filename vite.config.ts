@@ -10,9 +10,12 @@ export default defineConfig({
     globals: true,
     environment: 'happy-dom',
   },
+  esbuild: {
+    exclude: "**/*.test.*",
+  },
   build: {
     lib: {
-      entry: resolve(__dirname, "lib/main.ts"),
+      entry: resolve(__dirname, "./src/lib/main.ts"),
       name: "react-tui",
       fileName: (format) => `react-tui.${format}.js`
     },

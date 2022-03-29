@@ -2,7 +2,7 @@ import { InputHTMLAttributes, SelectHTMLAttributes } from "react"
 import TuiInput from "../components/TuiInput"
 import TuiSelect from "../components/TuiSelect"
 import TuiTextarea from "../components/TuiTextarea"
-import "./TuiLabelledInput.css"
+import "./TuiLabeledInput.css"
 
 export type TuiLabeledInputProps = InputHTMLAttributes<HTMLInputElement> & {
   label: React.ReactNode;
