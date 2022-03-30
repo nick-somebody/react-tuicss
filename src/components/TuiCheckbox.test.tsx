@@ -8,9 +8,10 @@ describe("TuiCheckbox", () => {
 
   test("checkbox has role of checkbox", () => {
     render(<TuiCheckbox label={ label } />);
-    const checkbox = screen.getByRole("checkbox");
+    const checkbox = screen.getByRole<HTMLInputElement>("checkbox");
 
     expect(checkbox.tagName).toEqual("INPUT")
+    expect(checkbox.type).toBe("checkbox")
   })
 
   test("if disabled, input and span are attributed with disabled class", () => {
