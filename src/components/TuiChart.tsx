@@ -7,6 +7,8 @@ type ChartProps = {
   labels?: string[];
   valueScaler?: (value: number) => string;
   valueFormatter?: (value: number) => string;
+  minValue?: number;
+  maxValue?: number;
 }
 const colors: string[] = Object.values(ChartColor);
 
@@ -28,8 +30,15 @@ function VerticalChart(props: ChartProps) {
   return (
     <div className="tui-chart-vertical" style={ props.size }>
       <div className={ getDisplayClassName(!!props.labels) }>
-        { props.values.map(({ value }, idx) => (
+        { props.values.map(({ label, value }, idx) => (
           <div
+            role="meter"
+            tabIndex={0}
+            aria-valuenow={ value }
+            aria-valuemin={props.minValue ?? 0}
+            aria-valuemax={props.maxValue ?? 100}
+            aria-valuetext={ (props.valueFormatter ?? defaultScaler)(value) }
+            aria-label={label}
             key={ `value-shape-${idx}` }
             className={ getClassName(idx) }
             style={ { height: (props.valueScaler ?? defaultScaler)(value) } }
@@ -64,8 +73,15 @@ function HorizontalChart(props: ChartProps) {
   return (
     <div className="tui-chart-horizontal" style={ props.size }>
       <div className={ getDisplayClassName(!!props.labels) }>
-        { props.values.map(({ value }, idx) => (
+        { props.values.map(({ value, label }, idx) => (
           <div
+            role="meter"
+            tabIndex={0}
+            aria-valuenow={ value }
+            aria-valuemin={props.minValue ?? 0}
+            aria-valuemax={props.maxValue ?? 100}
+            aria-valuetext={ (props.valueFormatter ?? defaultScaler)(value) }
+            aria-label={label}
             key={ `value-shape-${idx}` }
             className={ getClassName(idx) }
             style={ { width: (props.valueScaler ?? defaultScaler)(value) } }
