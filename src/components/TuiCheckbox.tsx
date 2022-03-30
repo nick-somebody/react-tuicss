@@ -7,11 +7,11 @@ export type TuiCheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
   label: React.ReactNode;
 }
 
-function TuiCheckbox(props: TuiCheckboxProps) {
+function TuiCheckbox({ label, ...props}: TuiCheckboxProps) {
   return (
     <label className={ checkboxClass(props) }>
-      { props.label }
-      <TuiInput {...props} type="checkbox" />
+      { label }
+      <TuiInput {...props} type="checkbox" role="checkbox" />
       <span className={ optionSpanClass(props) }></span>
     </label>
   )
