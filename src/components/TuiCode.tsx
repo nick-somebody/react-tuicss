@@ -27,7 +27,7 @@ function TuiCode (
 
   return (
     <pre className={getClassName()} {...props}>
-      <code>
+      <code role="figure">
         {code}
       </code>
     </pre>
