@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import TuiChart from './TuiChart'
+import TuiChart, { getDisplayClassName } from './TuiChart'
 
 describe("TuiChart", () => {
   const testid = "asdaklsd123091"
@@ -67,6 +67,16 @@ describe("TuiChart", () => {
       const chart = screen.getByTestId(testid)
       expect(chart.classList.contains("tui-chart-horizontal")).toBeTruthy()
     })
+  })
+
+  test("getDisplayClassName, returns classes for labels", () => {
+    const classes = getDisplayClassName(true)
+    expect(classes).toBe("tui-chart-display")
+  })
+
+  test("getDisplayClassName, returns classes to exclude labels", () => {
+    const classes = getDisplayClassName(false)
+    expect(classes).toBe("tui-chart-display no-x-axis no-y-axis")
   })
 })
 
