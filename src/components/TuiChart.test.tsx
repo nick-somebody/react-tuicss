@@ -3,34 +3,69 @@ import { render, screen } from '@testing-library/react'
 import TuiChart from './TuiChart'
 
 describe("TuiChart", () => {
-  const size = { width: "100px", height: "100px" }
-  const values = [
-    { label: "label1", value: 20 },
-    { label: "label2", value: 40 },
-    { label: "label3", value: 60 }
-  ]
+  const testid = "asdaklsd123091"
+  const props = {
+    size: { width: "100px", height: "100px" },
+    values: [
+      { label: "label1", value: 20 },
+      { label: "label2", value: 40 },
+      { label: "label3", value: 60 }
+    ],
+    labels: [
+      "100%",
+      "50%",
+    ],
+    minValue: 0,
+    maxValue: 0,
+    "data-testid": testid
+  }
 
   describe("Vertical", () => {
-    test("will render", () => {
-      render(<TuiChart.Vertical size={ size } values={ values } />)
-      const meter = screen.getAllByRole("meter")
-      expect(meter).toBeDefined()
-      expect(meter).toHaveLength(values.length)
+    test("will render with number of bars and attributes", () => {
+      render(<TuiChart.Vertical { ...props } />)
+      const meters = screen.getAllByRole("meter")
+      expect(meters).toBeDefined()
+      expect(meters).toHaveLength(props.values.length)
+      meters.forEach((meter, index) => {
+        const { value, label } = props.values[index]
+        expect(meter.tabIndex).toBe(0)
+        expect(meter.getAttribute("aria-valuenow")).toBe(String(value))
+        expect(meter.getAttribute("aria-valuemin")).toBe(String(props.minValue))
+        expect(meter.getAttribute("aria-valuemax")).toBe(String(props.maxValue))
+        expect(meter.getAttribute("aria-valuetext")).toBe(`${value}%`)
+        expect(meter.getAttribute("aria-label")).toBe(label)
+        expect(meter.innerText).toBe(`${value}%`)
+      })
     })
-    // test.each(values.map(val => (val.label)))(
-    //   "has %s label",
-    //   (label) => {
-
-    //   }
-    // )
+    test("has correct classs", () => {
+      render(<TuiChart.Vertical { ...props } />)
+      const chart = screen.getByTestId(testid)
+      expect(chart.classList.contains("tui-chart-vertical")).toBeTruthy()
+    })
+    
   })
 
   describe("Horizontal", () => {
-    test("will render", () => {
-      render(<TuiChart.Horizontal size={ size } values={ values } />)
-      const meter = screen.getAllByRole("meter")
-      expect(meter).toBeDefined()
-      expect(meter).toHaveLength(values.length)
+    test("will render with number of bars and attributes", () => {
+      render(<TuiChart.Horizontal { ...props } />)
+      const meters = screen.getAllByRole("meter")
+      expect(meters).toBeDefined()
+      expect(meters).toHaveLength(props.values.length)
+      meters.forEach((meter, index) => {
+        const { value, label } = props.values[index]
+        expect(meter.tabIndex).toBe(0)
+        expect(meter.getAttribute("aria-valuenow")).toBe(String(value))
+        expect(meter.getAttribute("aria-valuemin")).toBe(String(props.minValue))
+        expect(meter.getAttribute("aria-valuemax")).toBe(String(props.maxValue))
+        expect(meter.getAttribute("aria-valuetext")).toBe(`${value}%`)
+        expect(meter.getAttribute("aria-label")).toBe(label)
+        expect(meter.innerText).toBe(`${value}%`)
+      })
+    })
+    test("has correct classs", () => {
+      render(<TuiChart.Horizontal { ...props } />)
+      const chart = screen.getByTestId(testid)
+      expect(chart.classList.contains("tui-chart-horizontal")).toBeTruthy()
     })
   })
 })
