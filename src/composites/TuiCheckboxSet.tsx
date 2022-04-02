@@ -1,7 +1,8 @@
 import React from "react";
-import TuiCheckbox, { TuiCheckboxProps} from "../components/TuiCheckbox";
+import TuiCheckbox from "../components/TuiCheckbox";
 import TuiFieldset from "../components/TuiFieldset";
 import TuiLegend from "../components/TuiLegend";
+import { TuiOptionControlProps } from "../components/TuiOptionControl";
 import "./TuiCheckboxSet.css"
 
 type CheckboxValue = string | number | readonly string[];
@@ -10,7 +11,7 @@ type CheckboxValue = string | number | readonly string[];
 type TuiCheckboxSetProps = {
   heading: React.ReactNode;
   description?: React.ReactNode;
-  options: TuiCheckboxProps[];
+  options: TuiOptionControlProps[];
   onChange?: (values: CheckboxValue[]) => void;
   values?: CheckboxValue[];
 }
