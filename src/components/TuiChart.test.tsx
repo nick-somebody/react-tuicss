@@ -15,14 +15,17 @@ describe("TuiChart", () => {
       "100%",
       "50%",
     ],
+    "data-testid": testid
+  }
+  const allProps = {
+    ...props,
     minValue: 0,
     maxValue: 0,
-    "data-testid": testid
   }
 
   describe("Vertical", () => {
     test("will render with number of bars and attributes", () => {
-      render(<TuiChart.Vertical { ...props } />)
+      render(<TuiChart.Vertical { ...allProps } />)
       const meters = screen.getAllByRole("meter")
       expect(meters).toBeDefined()
       expect(meters).toHaveLength(props.values.length)
@@ -30,11 +33,24 @@ describe("TuiChart", () => {
         const { value, label } = props.values[index]
         expect(meter.tabIndex).toBe(0)
         expect(meter.getAttribute("aria-valuenow")).toBe(String(value))
-        expect(meter.getAttribute("aria-valuemin")).toBe(String(props.minValue))
-        expect(meter.getAttribute("aria-valuemax")).toBe(String(props.maxValue))
+        expect(meter.getAttribute("aria-valuemin")).toBe(String(allProps.minValue))
+        expect(meter.getAttribute("aria-valuemax")).toBe(String(allProps.maxValue))
         expect(meter.getAttribute("aria-valuetext")).toBe(`${value}%`)
         expect(meter.getAttribute("aria-label")).toBe(label)
         expect(meter.innerText).toBe(`${value}%`)
+      })
+    })
+
+    test("will provide defaults for missing props", () => {
+      render(<TuiChart.Vertical { ...props } />)
+      const meters = screen.getAllByRole("meter")
+      expect(meters).toBeDefined()
+      expect(meters).toHaveLength(props.values.length)
+      meters.forEach((meter, index) => {
+        const { value, label } = props.values[index]
+        expect(meter.tabIndex).toBe(0)
+        expect(meter.getAttribute("aria-valuemin")).toBe(String(0))
+        expect(meter.getAttribute("aria-valuemax")).toBe(String(100))
       })
     })
     test("has correct classs", () => {
@@ -47,7 +63,7 @@ describe("TuiChart", () => {
 
   describe("Horizontal", () => {
     test("will render with number of bars and attributes", () => {
-      render(<TuiChart.Horizontal { ...props } />)
+      render(<TuiChart.Horizontal { ...allProps } />)
       const meters = screen.getAllByRole("meter")
       expect(meters).toBeDefined()
       expect(meters).toHaveLength(props.values.length)
@@ -55,11 +71,23 @@ describe("TuiChart", () => {
         const { value, label } = props.values[index]
         expect(meter.tabIndex).toBe(0)
         expect(meter.getAttribute("aria-valuenow")).toBe(String(value))
-        expect(meter.getAttribute("aria-valuemin")).toBe(String(props.minValue))
-        expect(meter.getAttribute("aria-valuemax")).toBe(String(props.maxValue))
+        expect(meter.getAttribute("aria-valuemin")).toBe(String(allProps.minValue))
+        expect(meter.getAttribute("aria-valuemax")).toBe(String(allProps.maxValue))
         expect(meter.getAttribute("aria-valuetext")).toBe(`${value}%`)
         expect(meter.getAttribute("aria-label")).toBe(label)
         expect(meter.innerText).toBe(`${value}%`)
+      })
+    })
+    test("will provide defaults for missing props", () => {
+      render(<TuiChart.Horizontal { ...props } />)
+      const meters = screen.getAllByRole("meter")
+      expect(meters).toBeDefined()
+      expect(meters).toHaveLength(props.values.length)
+      meters.forEach((meter, index) => {
+        const { value, label } = props.values[index]
+        expect(meter.tabIndex).toBe(0)
+        expect(meter.getAttribute("aria-valuemin")).toBe(String(0))
+        expect(meter.getAttribute("aria-valuemax")).toBe(String(100))
       })
     })
     test("has correct classs", () => {

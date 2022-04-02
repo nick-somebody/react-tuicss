@@ -5,9 +5,16 @@ import { Color, MildColor } from '../types/enums'
 
 describe("TuiCode", () => {
   const testId = "testcodeid"
+  const snippet = `console.log("Asdasdasd")`
+
+  test("will include a provided classname", () => {
+    const className = "sadlkjalksd"
+    render(<TuiCode.Dark className={ className } code={ snippet } data-testid={ testId } />)
+      const pre = screen.getByTestId(testId)
+      expect(pre.classList.contains(className)).toBeTruthy()
+  })
 
   describe("TuiCode.Dark", () => {
-    const snippet = `console.log("Asdasdasd")`
     test("it renders with code snippet", () => {
       render(<TuiCode.Dark code={ snippet } />)
       const code = screen.getByRole("figure")
