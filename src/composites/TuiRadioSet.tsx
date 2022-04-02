@@ -1,9 +1,8 @@
 import React from "react";
-import TuiRadio from "../components/TuiRadio";
+import TuiRadio, { TuiRadioProps } from "../components/TuiRadio";
 import TuiFieldset from "../components/TuiFieldset";
 import TuiLegend from "../components/TuiLegend";
 import "./TuiRadioSet.css"
-import { TuiOptionControlProps } from "../components/TuiOptionControl";
 
 type RadioValue = string | number | readonly string[];
 
@@ -11,7 +10,7 @@ type RadioValue = string | number | readonly string[];
 type TuiRadioSetProps = {
   heading: React.ReactNode;
   description?: React.ReactNode;
-  options: TuiOptionControlProps[];
+  options: TuiRadioProps[];
   onChange?: (value: RadioValue) => void;
   value?: RadioValue;
 }

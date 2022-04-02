@@ -2,6 +2,7 @@ import React, { DataHTMLAttributes, InputHTMLAttributes } from "react";
 import { radioClass, checkboxClass } from "../helpers";
 import TuiInput from "./TuiInput";
 
+
 export type TuiOptionControlProps = Omit<InputHTMLAttributes<HTMLInputElement>, "type"> & {
   type: "radio" | "checkbox";
   label: React.ReactNode;
