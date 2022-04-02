@@ -1,5 +1,5 @@
 import React from "react";
-import TuiTabs from "../components/TuiTabs";
+import TuiTabs from "../composites/TuiTabs";
 
 
 function Bios() {
