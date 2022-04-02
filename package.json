@@ -18,6 +18,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "coverage": "vitest run --coverage",
+    "bump:patch": "npm version patch",
+    "bump:minor": "npm version minor",
     "test": "vitest run",
     "test:ui": "vitest --ui"
   },
