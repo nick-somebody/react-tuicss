@@ -11,7 +11,7 @@ function TuiTextarea({
     <textarea
       disabled={ disabled }
       className={ inputClass({ disabled, className }) }
-      {...props}
+      { ...props }
     ></textarea>
   )
 }

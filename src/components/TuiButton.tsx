@@ -1,5 +1,4 @@
 import React, { ButtonHTMLAttributes } from "react";
-import { propFilter } from "../helpers";
 import { Color, MildColor } from "../types/enums";
 import "./TuiButton.css";
 
