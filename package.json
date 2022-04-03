@@ -4,6 +4,7 @@
   "files": [
     "dist"
   ],
+  "types": "./dist/types/index.d.ts",
   "main": "./dist/react-tuicss.umd.js",
   "module": "./dist/react-tuicss.es.js",
   "exports": {
@@ -14,7 +15,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build && tsc",
     "preview": "vite preview",
     "coverage": "vitest run --coverage",
     "bump:patch": "git fetch origin --tags && npm version patch",
