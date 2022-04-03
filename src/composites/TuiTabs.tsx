@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { DataHTMLAttributes, useEffect } from 'react';
 import { getId } from '../helpers';
 import "./TuiTabs.css";
 
@@ -6,11 +6,11 @@ export type Tab = {
   tab: JSX.Element;
   tabTitle: string
 }
-export type TabsProps = {
+export type TabsProps = DataHTMLAttributes<HTMLDivElement> & {
   tabs: Tab[];
 }
 
-function TuiTabs({ tabs }: TabsProps) {
+function TuiTabs({ tabs, ...props }: TabsProps) {
   const [activeTab, setActiveTab] = React.useState<number>(0);
   const [id, setId] = React.useState<number>();
 
@@ -49,7 +49,7 @@ function TuiTabs({ tabs }: TabsProps) {
   }
 
   return (
-    <div>
+    <div { ...props }>
       <div className="tui-tabs">
           <ul role="tablist" onKeyDown={keyListener}>
               {

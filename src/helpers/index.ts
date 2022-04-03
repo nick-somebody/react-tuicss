@@ -32,12 +32,3 @@ export const getId = () => {
   id +=1;
   return id;
 }
-
-export function propFilter<T>(props: T, keys: (keyof T)[]) {
-  const newProps = {...props}
-  for (let i = 0; i < keys.length; i++) {
-    const key = keys[i];
-    delete newProps[key];
-  }
-  return newProps;
-}

@@ -1,19 +1,12 @@
-import React, { InputHTMLAttributes } from "react";
-import { radioClass } from "../helpers";
-import TuiInput from "./TuiInput";
+import React from "react";
+import TuiOptionControl, { TuiOptionControlProps } from "./TuiOptionControl";
 import "./TuiRadio.css";
 
-export type TuiRadioProps = InputHTMLAttributes<HTMLInputElement> & {
-  label: React.ReactNode;
-}
+export type TuiRadioProps = Omit<TuiOptionControlProps, "type">
 
-function TuiRadio(props: TuiRadioProps) {
+function TuiRadio(props: Omit<TuiOptionControlProps, "type">) {
   return (
-    <label className={ radioClass(props) }>
-      { props.label }
-      <TuiInput {...props} type="radio" />
-      <span className={ props.disabled ? 'disabled' : '' }></span>
-    </label>
+    <TuiOptionControl type="radio" { ...props } />
   )
 }
 

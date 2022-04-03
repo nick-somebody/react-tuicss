@@ -1,5 +1,5 @@
 import React from "react";
-import TuiRadio, { TuiRadioProps} from "../components/TuiRadio";
+import TuiRadio, { TuiRadioProps } from "../components/TuiRadio";
 import TuiFieldset from "../components/TuiFieldset";
 import TuiLegend from "../components/TuiLegend";
 import "./TuiRadioSet.css"

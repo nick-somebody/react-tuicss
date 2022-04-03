@@ -1,5 +1,5 @@
 import React from "react";
-import TuiCheckbox, { TuiCheckboxProps} from "../components/TuiCheckbox";
+import TuiCheckbox, { TuiCheckboxProps } from "../components/TuiCheckbox";
 import TuiFieldset from "../components/TuiFieldset";
 import TuiLegend from "../components/TuiLegend";
 import "./TuiCheckboxSet.css"

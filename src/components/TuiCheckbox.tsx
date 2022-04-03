@@ -1,19 +1,12 @@
-import React, { InputHTMLAttributes } from "react";
-import { checkboxClass, optionSpanClass } from "../helpers";
-import TuiInput from "./TuiInput";
+import React from "react";
+import TuiOptionControl, { TuiOptionControlProps} from "./TuiOptionControl";
 import "./TuiCheckbox.css"
 
-export type TuiCheckboxProps = InputHTMLAttributes<HTMLInputElement> & {
-  label: React.ReactNode;
-}
+export type TuiCheckboxProps = Omit<TuiOptionControlProps, "type">
 
-function TuiCheckbox(props: TuiCheckboxProps) {
+function TuiCheckbox(props: Omit<TuiOptionControlProps, "type">) {
   return (
-    <label className={ checkboxClass(props) }>
-      { props.label }
-      <TuiInput {...props} type="checkbox" />
-      <span className={ optionSpanClass(props) }></span>
-    </label>
+    <TuiOptionControl type="checkbox" role="checkbox" { ...props } />
   )
 }
 

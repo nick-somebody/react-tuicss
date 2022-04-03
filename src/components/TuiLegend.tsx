@@ -1,9 +1,12 @@
 import React, { HtmlHTMLAttributes } from "react";
 
-function TuiLegend (props: HtmlHTMLAttributes<HTMLLegendElement>) {
+function TuiLegend ({
+  children,
+  ...props
+}: HtmlHTMLAttributes<HTMLLegendElement>) {
   return (
     <legend {...props}>
-      { props.children }
+      { children }
     </legend>
   );
 }

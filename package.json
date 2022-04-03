@@ -16,7 +16,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "coverage": "vitest run --coverage",
+    "bump:patch": "git fetch origin --tags && npm version patch",
+    "bump:minor": "git fetch origin --tags && npm version minor",
+    "bump:major": "git fetch origin --tags && npm version major",
+    "release": "git push origin refs/tags/$(git describe --tags --abbrev=0)",
+    "test": "vitest run",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "date-fns": "^2.28.0",
@@ -25,11 +32,16 @@
     "tuicss": "^2.1.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^12.1.4",
     "@types/node": "^17.0.21",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@vitejs/plugin-react": "^1.0.7",
+    "@vitest/ui": "^0.7.13",
+    "c8": "^7.11.0",
+    "happy-dom": "^2.50.0",
     "typescript": "^4.5.4",
-    "vite": "^2.8.0"
+    "vite": "^2.8.0",
+    "vitest": "^0.7.13"
   }
 }

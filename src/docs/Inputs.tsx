@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TuiOptGroup, TuiOption } from "../components/TuiSelect";
 import TuiCheckboxSet from "../composites/TuiCheckboxSet";
 import TuiRadioSet from "../composites/TuiRadioSet";
-import { TuiLabeledInput, TuiLabeledSelect, TuiLabeledTextarea } from "../composites/TuiLabelledInput";
+import { TuiLabeledInput, TuiLabeledSelect, TuiLabeledTextarea } from "../composites/TuiLabeledInput";
 import "./Inputs.css"
 import TuiInputSet from "../composites/TuiInputSet";
 

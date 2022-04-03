@@ -1,15 +1,16 @@
-import React from "react";
+import React, { AllHTMLAttributes } from "react";
 
-type TuiPanelProps = {
+type TuiPanelProps = AllHTMLAttributes<HTMLDivElement> & {
   header?: string;
-  children: React.ReactNode;
 }
 
-function TuiPanel({ header, children }: TuiPanelProps) {
+function TuiPanel({ header, children, ...props }: TuiPanelProps) {
   return (
-    <div className="tui-panel">
+    <div className="tui-panel" { ...props }>
       {
-        header && <div className="tui-panel-header"></div>
+        header && <div className="tui-panel-header">
+          { header }
+        </div>
       }
       <div className="tui-panel-content">
         { children }

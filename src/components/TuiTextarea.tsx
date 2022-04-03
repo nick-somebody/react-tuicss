@@ -1,11 +1,17 @@
 import React, { InputHTMLAttributes } from "react";
 import { inputClass } from "../helpers";
 
-function TuiTextarea(props: InputHTMLAttributes<HTMLTextAreaElement>) {
+function TuiTextarea({
+  disabled,
+  className,
+  children,
+  ...props
+}: InputHTMLAttributes<HTMLTextAreaElement>) {
   return (
     <textarea
-      {...props}
-      className={ inputClass(props) }
+      disabled={ disabled }
+      className={ inputClass({ disabled, className }) }
+      { ...props }
     ></textarea>
   )
 }

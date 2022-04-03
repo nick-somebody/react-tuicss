@@ -1,5 +1,4 @@
 import React, { ButtonHTMLAttributes } from "react";
-import { propFilter } from "../helpers";
 import { Color, MildColor } from "../types/enums";
 import "./TuiButton.css";
 
@@ -16,11 +15,12 @@ function TuiButton(
     fullWidth,
     light,
     color,
+    className,
     ...props
   }: TuiButtonProps
 ) {
   const getClassName = () => {
-    const classes = props.className?.split(" ") ?? [];
+    const classes = className?.split(" ") ?? [];
     classes.push("tui-button")
     if (props.disabled) { classes.push("disabled"); }
     if (color) { classes.push(color); }
