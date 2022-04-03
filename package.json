@@ -1,5 +1,5 @@
 {
-  "name": "react-tui",
+  "name": "@nicksomebody/react-tui",
   "version": "0.0.1",
   "files": [
     "dist"
