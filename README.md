@@ -1,4 +1,4 @@
-# react-tui
+# react-tuicss
 
 This project is a reactjs component library based on [TuiCss](https://github.com/vinibiavatti1/TuiCss).
 

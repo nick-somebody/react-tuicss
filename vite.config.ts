@@ -23,8 +23,8 @@ export default defineConfig(({ mode, command }) => {
     build: {
       lib: {
         entry: resolve(__dirname, "./src/lib/main.ts"),
-        name: "react-tui",
-        fileName: (format) => `react-tui.${format}.js`
+        name: "react-tuicss",
+        fileName: (format) => `react-tuicss.${format}.js`
       },
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled

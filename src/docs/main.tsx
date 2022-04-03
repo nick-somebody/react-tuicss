@@ -21,7 +21,7 @@ ReactDOM.render(
     <TuiBackground color={Background.BlueWhite}>
       <TuiGrid.Container>
         <h1 className="center" aria-label="React TUI">
-          ===========react-tui===========
+          ===========react-tuicss===========
         </h1>
         <Buttons />
         <TuiDivider />

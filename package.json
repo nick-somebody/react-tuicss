@@ -1,15 +1,15 @@
 {
-  "name": "@nicksomebody/react-tui",
+  "name": "react-tuicss",
   "version": "0.0.1",
   "files": [
     "dist"
   ],
-  "main": "./dist/react-tui.umd.js",
-  "module": "./dist/react-tui.es.js",
+  "main": "./dist/react-tuicss.umd.js",
+  "module": "./dist/react-tuicss.es.js",
   "exports": {
     ".": {
-      "import": "./dist/react-tui.es.js",
-      "require": "./dist/react-tui.umd.js"
+      "import": "./dist/react-tuicss.es.js",
+      "require": "./dist/react-tuicss.umd.js"
     }
   },
   "scripts": {
