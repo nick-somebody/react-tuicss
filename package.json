@@ -4,7 +4,7 @@
   "files": [
     "dist"
   ],
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/types/lib/main.d.ts",
   "main": "./dist/react-tuicss.umd.js",
   "module": "./dist/react-tuicss.es.js",
   "exports": {
