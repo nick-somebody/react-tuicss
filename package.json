@@ -21,7 +21,7 @@
     "bump:patch": "git fetch origin --tags && npm version patch",
     "bump:minor": "git fetch origin --tags && npm version minor",
     "bump:major": "git fetch origin --tags && npm version major",
-    "release": "git push origin refs/tags/mytag",
+    "release": "git push origin refs/tags/$(git describe --tags --abbrev=0)",
     "test": "vitest run",
     "test:ui": "vitest --ui"
   },
