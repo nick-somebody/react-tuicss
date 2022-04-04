@@ -29,4 +29,12 @@ export { default as TuiRadioSet } from "../composites/TuiRadioSet"
 export { default as TuiSidenav } from "../composites/TuiSidenav"
 export { default as TuiTabs } from "../composites/TuiTabs"
 
-export { Color, MildColor, ChartColor, DarkBackground, LightBackground, Background, Position } from "../types/enums"
+export {
+  Color,
+  MildColor,
+  ChartColor,
+  DarkBackground,
+  LightBackground,
+  Background,
+  Position
+} from "../types/enums"
