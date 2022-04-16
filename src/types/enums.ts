@@ -75,3 +75,14 @@ export enum Position {
   Relative = "relative",
   Static = "static"
 }
+
+export enum TableRowColor {
+  Blue = "blue",
+  Green = "green",
+  Cyan = "cyan",
+  Red = "red",
+  Purple = "purple",
+  Yellow = "yellow",
+  White = "white",
+  Orange = "orange",
+}

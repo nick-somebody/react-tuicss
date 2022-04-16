@@ -15,6 +15,7 @@ import Modals from './Modals';
 import Navigation from './Navigation';
 import Layout from './Layout'
 import TuiGrid from "../composites/TuiGrid"
+import Table from "./Table"
 
 ReactDOM.render(
   <React.StrictMode>
@@ -39,6 +40,7 @@ ReactDOM.render(
         <Forecast />
         <Navigation />
         <Layout />
+        <Table />
 
       </TuiGrid.Container>
     </TuiBackground>

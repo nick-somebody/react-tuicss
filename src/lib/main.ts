@@ -28,6 +28,7 @@ export { default as TuiNavbar } from "../composites/TuiNavbar"
 export { default as TuiRadioSet } from "../composites/TuiRadioSet"
 export { default as TuiSidenav } from "../composites/TuiSidenav"
 export { default as TuiTabs } from "../composites/TuiTabs"
+export { TuiTable, TuiTHead, TuiTBody, TuiTFoot, TuiTr, TuiTh, TuiTd } from "../composites/TuiTable"
 
 export {
   Color,
@@ -36,5 +37,6 @@ export {
   DarkBackground,
   LightBackground,
   Background,
-  Position
+  Position,
+  TableRowColor,
 } from "../types/enums"
