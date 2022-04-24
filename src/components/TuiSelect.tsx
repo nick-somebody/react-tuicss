@@ -1,12 +1,12 @@
-import React, { SelectHTMLAttributes, OptionHTMLAttributes, OptgroupHTMLAttributes } from "react";
+import type { SelectHTMLAttributes, OptionHTMLAttributes, OptgroupHTMLAttributes, FC } from "react";
 import { selectClass } from "../helpers";
 
-function TuiSelect({
+const TuiSelect: FC<SelectHTMLAttributes<HTMLSelectElement>> = ({
   disabled,
   className,
   children,
   ...props
-}: SelectHTMLAttributes<HTMLSelectElement>) {
+}: SelectHTMLAttributes<HTMLSelectElement>) => {
   return (
     <select { ...props } disabled={ disabled } className={ selectClass({ disabled, className }) }>
       { children }
@@ -14,12 +14,18 @@ function TuiSelect({
   )
 }
 
-export function TuiOption({ children, ...props }: OptionHTMLAttributes<HTMLOptionElement>) {
+export const TuiOption: FC<OptionHTMLAttributes<HTMLOptionElement>> = ({
+  children,
+  ...props
+}: OptionHTMLAttributes<HTMLOptionElement>) => {
   return (
     <option { ...props }>{children}</option>
   )
 }
-export function TuiOptGroup({ children, ...props }: OptgroupHTMLAttributes<HTMLOptGroupElement>) {
+export const TuiOptGroup: FC<OptgroupHTMLAttributes<HTMLOptGroupElement>> = ({
+  children,
+  ...props
+}: OptgroupHTMLAttributes<HTMLOptGroupElement>) => {
   return (
     <optgroup { ...props }>{children}</optgroup>
   )

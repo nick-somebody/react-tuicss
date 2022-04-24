@@ -1,15 +1,15 @@
-import React, { useRef } from "react";
+import { FC, useRef, ReactNode, useState } from "react";
 import { createPortal } from "react-dom";
 import "./TuiSidenav.css";
 
-type TuiSidenavProps = {
-  children?: React.ReactNode;
+interface TuiSidenavProps {
+  children?: ReactNode;
   buttonText?: string;
 }
 
-function TuiSidenav({ children, buttonText }: TuiSidenavProps) {
+const TuiSidenav: FC<TuiSidenavProps> = ({ children, buttonText }: TuiSidenavProps) => {
 
-  const [active, setActive] = React.useState(false)
+  const [active, setActive] = useState(false)
   const ref = useRef<HTMLButtonElement>(null)
 
   return (
@@ -18,7 +18,7 @@ function TuiSidenav({ children, buttonText }: TuiSidenavProps) {
         className="tui-sidenav-button"
         onClick={() => setActive(!active)}
         ref={ref}
-      >{active ? 'x' : '≡'}{ buttonText }</button>
+      >{ active ? 'x' : '≡'}{ buttonText }</button>
       { active && createPortal((
         <nav className="tui-sidenav active absolute">
           <ul>

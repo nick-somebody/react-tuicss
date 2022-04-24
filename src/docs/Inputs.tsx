@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { FC, useState } from "react";
 import { TuiOptGroup, TuiOption } from "../components/TuiSelect";
 import TuiCheckboxSet from "../composites/TuiCheckboxSet";
 import TuiRadioSet from "../composites/TuiRadioSet";
@@ -8,7 +8,7 @@ import TuiForm from "../composites/TuiForm";
 import TuiCode from "../components/TuiCode";
 
 
-function Inputs() {
+const Inputs: FC = () => {
   const [text, setText] = useState("text");
   const [checkboxVal, setCheckboxVal] = useState<number[]>([]);
   const [radioVal, setRadioVal] = useState<number>(0);

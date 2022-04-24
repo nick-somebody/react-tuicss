@@ -1,17 +1,17 @@
-import React from "react";
+import type { FC, ReactNode } from "react";
 
-type ContainerProps = {
-  children: React.ReactNode;
+interface ContainerProps {
+  children: ReactNode;
 }
 
-function Container({ children }: ContainerProps) {
+const Container: FC<ContainerProps> = ({ children }: ContainerProps) => {
   return (
     <div className="container">
       { children }
     </div>
   )
 }
-function Row({ children }: ContainerProps) {
+const Row: FC<ContainerProps> = ({ children }: ContainerProps) => {
   return (
     <div className="row">
       { children }
@@ -19,19 +19,19 @@ function Row({ children }: ContainerProps) {
   )
 }
 
-type ColProp = {
+interface ColProp {
   offset?: number;
   width?: number
 }
 
-type ColProps = {
-  children: React.ReactNode;
+interface ColProps {
+  children: ReactNode;
   s?: ColProp;
   m?: ColProp;
   l?: ColProp;
 }
 
-function Col({ children, ...sizes }: ColProps) {
+const Col: FC<ColProps> = ({ children, ...sizes }: ColProps) => {
 
   const classMaker = (): string => {
     const classes = ["col"];

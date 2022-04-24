@@ -1,10 +1,10 @@
-import React from "react";
+import type { FC } from "react";
 import TuiBackground from "../components/TuiBackground";
 import { TuiTable, TuiTBody, TuiTd, TuiTh, TuiTHead, TuiTr } from "../composites/TuiTable";
 import { TableRowColor, DarkBackground } from "../types/enums";
 import TuiCode from "../components/TuiCode";
 
-function Table() {
+const Table: FC = () => {
   return (
     <div>
       <h3>Table</h3>

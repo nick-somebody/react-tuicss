@@ -19,7 +19,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsc",
+    "build": "vite build && tsc -p ./tsconfig.build.json",
     "build:docs": "vite build --config vite.docs.config.ts",
     "coverage": "vitest run --coverage",
     "bump:patch": "git fetch origin --tags && npm version patch",
@@ -27,6 +27,7 @@
     "bump:major": "git fetch origin --tags && npm version major",
     "release": "git push origin refs/tags/$(git describe --tags --abbrev=0)",
     "test": "vitest run",
+    "typecheck": "tsc",
     "test:ui": "vitest --ui"
   },
   "dependencies": {

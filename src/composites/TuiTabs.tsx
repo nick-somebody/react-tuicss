@@ -1,18 +1,18 @@
-import React, { DataHTMLAttributes, useEffect } from 'react';
+import { DataHTMLAttributes, FC, useEffect, useState } from 'react';
 import { getId } from '../helpers';
 import "./TuiTabs.css";
 
-export type Tab = {
+export interface Tab {
   tab: JSX.Element;
   tabTitle: string
 }
-export type TabsProps = DataHTMLAttributes<HTMLDivElement> & {
+export interface TabsProps extends DataHTMLAttributes<HTMLDivElement> {
   tabs: Tab[];
 }
 
-function TuiTabs({ tabs, ...props }: TabsProps) {
-  const [activeTab, setActiveTab] = React.useState<number>(0);
-  const [id, setId] = React.useState<number>();
+const TuiTabs: FC<TabsProps> = ({ tabs, ...props }: TabsProps) => {
+  const [activeTab, setActiveTab] = useState<number>(0);
+  const [id, setId] = useState<number>();
 
   useEffect(() => {
     setId(getId());
@@ -51,23 +51,23 @@ function TuiTabs({ tabs, ...props }: TabsProps) {
   return (
     <div { ...props }>
       <div className="tui-tabs">
-          <ul role="tablist" onKeyDown={keyListener}>
-              {
-                tabs.map(({ tabTitle }, idx) => (
-                  <li key={`tab-head-${idx}`}>
-                    <button
-                      role="tab"
-                      className={ getClassName(idx) }
-                      id={ tabDOMId(idx) }
-                      aria-controls={ tabPaneDOMId(idx) }
-                      onClick={ () => { setActiveTab(idx) } }
-                      aria-selected={ isActive(idx) }
-                      tabIndex={ isActive(idx) ? 0 : -1 }
-                    >{ tabTitle }</button>
-                  </li>
-                ))
-              }
-          </ul>
+        <ul role="tablist" onKeyDown={keyListener}>
+          {
+            tabs.map(({ tabTitle }, idx) => (
+              <li key={`tab-head-${idx}`}>
+                <button
+                  role="tab"
+                  className={ getClassName(idx) }
+                  id={ tabDOMId(idx) }
+                  aria-controls={ tabPaneDOMId(idx) }
+                  onClick={ () => { setActiveTab(idx) } }
+                  aria-selected={ isActive(idx) }
+                  tabIndex={ isActive(idx) ? 0 : -1 }
+                >{ tabTitle }</button>
+              </li>
+            ))
+          }
+        </ul>
       </div>
       {
         tabs.map(({ tab }, idx) => (

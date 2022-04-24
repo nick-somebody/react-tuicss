@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import TuiChart from "../components/TuiChart";
 import TuiCode from "../components/TuiCode";
 
-function Charts() {
+const Charts: FC = () => {
   return (
     <div className="center">
       <h2>Charts</h2>

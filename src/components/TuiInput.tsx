@@ -1,12 +1,12 @@
-import React, { InputHTMLAttributes } from "react";
+import type { FC, InputHTMLAttributes } from "react";
 import { inputClass } from "../helpers";
 
-function TuiInput({
+const TuiInput: FC<InputHTMLAttributes<HTMLInputElement>> = ({
   disabled,
   className,
   type,
   ...props
-}: InputHTMLAttributes<HTMLInputElement>) {
+}: InputHTMLAttributes<HTMLInputElement>) =>{
   return (
     <input
       type={ type ?? "text" }

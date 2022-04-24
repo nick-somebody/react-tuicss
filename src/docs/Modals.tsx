@@ -1,7 +1,7 @@
-import React from "react";
+import type { FC } from "react";
 import TuiModal from "../composites/TuiModal";
 
-function Modals({ parent }: { parent?: HTMLElement}) {
+const Modals: FC<{ parent?: HTMLElement }> = ({ parent }) => {
 
   return (
     <>

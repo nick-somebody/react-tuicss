@@ -1,4 +1,4 @@
-import React from "react";
+import type { ChangeEventHandler, FC, ReactNode } from "react";
 import TuiRadio, { TuiRadioProps } from "../components/TuiRadio";
 import TuiFieldset from "../components/TuiFieldset";
 import TuiLegend from "../components/TuiLegend";
@@ -6,17 +6,16 @@ import "./TuiRadioSet.css"
 
 type RadioValue = string | number | readonly string[];
 
-
-type TuiRadioSetProps = {
-  heading: React.ReactNode;
-  description?: React.ReactNode;
+interface TuiRadioSetProps {
+  heading: ReactNode;
+  description?: ReactNode;
   options: TuiRadioProps[];
   onChange?: (value: RadioValue) => void;
   value?: RadioValue;
 }
 
-function TuiRadioSet(props: TuiRadioSetProps) {
-  const changeHandler: React.ChangeEventHandler<HTMLInputElement> = ({ target }) => {
+const TuiRadioSet: FC<TuiRadioSetProps> = (props: TuiRadioSetProps) => {
+  const changeHandler: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
     if (props.onChange !== undefined) {
       props.onChange(target.value)
     }

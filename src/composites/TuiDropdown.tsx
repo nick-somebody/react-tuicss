@@ -1,13 +1,13 @@
-import React from "react";
+import { FC, ReactNode } from "react";
 import "./TuiDropdown.css"
 
-type TuiDropdownProps = {
-  dropDownLabel: string | React.ReactNode;
-  children: React.ReactNode;
+interface TuiDropdownProps {
+  dropDownLabel: string | ReactNode;
+  children: ReactNode;
   block?: boolean;
 }
 
-function TuiDropdown({ children, dropDownLabel, block }: TuiDropdownProps) {
+const TuiDropdown: FC<TuiDropdownProps> = ({ children, dropDownLabel, block }: TuiDropdownProps) => {
 
   const classNameMaker = () => {
     const classes = ["tui-dropdown"]

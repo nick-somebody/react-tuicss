@@ -1,8 +1,8 @@
-import React from "react";
+import type { FC } from "react";
 import TuiCode from "../components/TuiCode";
 import { Color, MildColor } from "../types/enums"
 
-function Codes() {
+const Codes: FC = () => {
 
   return (
     <>

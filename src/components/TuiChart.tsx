@@ -1,7 +1,7 @@
-import React, { DataHTMLAttributes } from "react";
+import type { DataHTMLAttributes, FC } from "react";
 import { ChartColor } from "../types/enums";
 
-type ChartProps = DataHTMLAttributes<HTMLDivElement> & {
+interface ChartProps extends DataHTMLAttributes<HTMLDivElement> {
   size: { width: string, height: string };
   values: { label: string, value: number }[];
   labels?: string[];
@@ -9,10 +9,9 @@ type ChartProps = DataHTMLAttributes<HTMLDivElement> & {
   valueFormatter?: (value: number) => string;
   minValue?: number;
   maxValue?: number;
-  
 }
-const colors: string[] = Object.values(ChartColor);
 
+const colors: string[] = Object.values(ChartColor);
 const defaultScaler = (value: number) => `${value}%`;
 
 export const getClassName = (idx: number) => {
@@ -26,7 +25,7 @@ export const getDisplayClassName = (needsLabels: boolean) => {
   return "tui-chart-display no-x-axis no-y-axis";
 }
 
-function VerticalChart({
+const VerticalChart: FC<ChartProps> = ({
   size,
   values,
   labels,
@@ -35,7 +34,7 @@ function VerticalChart({
   minValue,
   maxValue,
   ...props
-}: ChartProps) {
+}: ChartProps) => {
   return (
     <div className="tui-chart-vertical" style={ size } { ...props }>
       <div className={ getDisplayClassName(!!labels) }>

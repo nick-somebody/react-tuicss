@@ -1,11 +1,11 @@
-import React from "react";
+import type { FC } from "react";
 import TuiButton from "../components/TuiButton";
 import { Color, MildColor } from "../types/enums";
 import TuiCode from "../components/TuiCode";
 import TuiFieldset from "../components/TuiFieldset";
 import TuiLegend from "../components/TuiLegend";
 
-function Buttons() {
+const Buttons: FC = () => {
   return (
     <div style={ { padding: "25px 0" } }>
       <h2>Buttons</h2>

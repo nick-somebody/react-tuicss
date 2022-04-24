@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { format } from 'date-fns'
 
-type TuiDatetimeProps = {
+interface TuiDatetimeProps {
   format: string;
 }
 

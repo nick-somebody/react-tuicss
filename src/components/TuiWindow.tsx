@@ -1,19 +1,19 @@
-import React, { HTMLAttributes } from "react";
+import type { FC, HTMLAttributes } from "react";
 import TuiFieldset from "./TuiFieldset";
 import TuiLegend from "./TuiLegend";
 
-type TuiWindowProps = HTMLAttributes<HTMLDivElement> & {
+interface TuiWindowProps extends HTMLAttributes<HTMLDivElement> {
   basic?: boolean;
   heading?: string;
 }
 
-function TuiWindow({
+const TuiWindow: FC<TuiWindowProps> = ({
   children,
   basic,
   className,
   heading,
   ...props
-}: TuiWindowProps) {
+}: TuiWindowProps) => {
   const classNamer = () => {
     if (className) {
       return `tui-window ${className}`

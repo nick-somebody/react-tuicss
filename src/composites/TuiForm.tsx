@@ -1,13 +1,18 @@
-import React from "react";
+import type { FC, FormHTMLAttributes, ReactNode } from "react";
 import TuiFieldset from "../components/TuiFieldset";
 import TuiLegend from "../components/TuiLegend";
 
-type TuiFormProps = React.FormHTMLAttributes<HTMLFormElement> & {
-  heading?: React.ReactNode;
-  description?: React.ReactNode;
+interface TuiFormProps extends FormHTMLAttributes<HTMLFormElement> {
+  heading?: ReactNode;
+  description?: ReactNode;
 }
 
-function TuiForm({ heading, description, children, ...props }: TuiFormProps) {
+const TuiForm: FC<TuiFormProps> = ({
+  heading,
+  description,
+  children,
+  ...props
+}: TuiFormProps) => {
 
   if (!heading) {
     return (

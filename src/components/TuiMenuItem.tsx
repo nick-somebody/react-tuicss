@@ -1,12 +1,12 @@
-import React from "react";
+import type { FC, MouseEventHandler, ReactNode } from "react";
 
-type TuiMenuItemProps = {
-  children: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+interface TuiMenuItemProps {
+  children: ReactNode;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   href?: string;
 }
 
-function TuiMenuItem({ children, onClick, href }: TuiMenuItemProps) {
+const TuiMenuItem: FC<TuiMenuItemProps> = ({ children, onClick, href }: TuiMenuItemProps) => {
 
   const hasClicker = !!onClick;
   const hasLink = !!href;

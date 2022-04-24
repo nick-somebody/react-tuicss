@@ -1,8 +1,7 @@
-import React from "react";
+import type { FC } from "react";
 import TuiTabs from "../composites/TuiTabs";
 
-
-function Bios() {
+const Bios: FC = () => {
   return (
     <div className="tui-screen-800-600 bordered white-168">
       <div className="tui-panel cyan-168 full-width black-255-text tui-no-shadow center">

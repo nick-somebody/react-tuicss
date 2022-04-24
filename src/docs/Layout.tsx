@@ -1,8 +1,8 @@
-import React from "react";
+import type { FC } from "react";
 import TuiGrid from "../composites/TuiGrid";
 import TuiCode from "../components/TuiCode";
 
-function Layout() {
+const Layout: FC = () => {
   return (
     <>
       <TuiGrid.Container>

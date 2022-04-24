@@ -1,25 +1,23 @@
-import React, { useEffect } from "react";
-import ReactDOM, { createPortal } from "react-dom";
+import { FC, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import TuiButton, { TuiButtonProps } from "../components/TuiButton";
 import TuiFieldset from "../components/TuiFieldset";
 import TuiLegend from "../components/TuiLegend";
 import { Color, MildColor } from "../types/enums";
 import "./TuiModal.css";
 
-const div = React.createElement("div")
-
-type TuiModalProps = {
+interface TuiModalProps {
   buttonProps?: TuiButtonProps;
   children?: React.ReactNode;
   parent?: HTMLElement;
   modalTitle?: string;
 }
 
-function TuiModal({ children, buttonProps, parent, modalTitle }: TuiModalProps) {
+const TuiModal: FC<TuiModalProps> = ({ children, buttonProps, parent, modalTitle }: TuiModalProps) => {
 
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
 
-  const el = React.useMemo(() => document.createElement("div"), []);
+  const el = useMemo(() => document.createElement("div"), []);
 
   const clicker: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     if (buttonProps?.onClick) {

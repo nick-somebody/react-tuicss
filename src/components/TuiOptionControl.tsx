@@ -1,22 +1,22 @@
-import React, { DataHTMLAttributes, InputHTMLAttributes } from "react";
+import type { DataHTMLAttributes, FC, InputHTMLAttributes, ReactNode } from "react";
 import { radioClass, checkboxClass } from "../helpers";
 import TuiInput from "./TuiInput";
 
 
-export type TuiOptionControlProps = Omit<InputHTMLAttributes<HTMLInputElement>, "type"> & {
+export interface TuiOptionControlProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
   type: "radio" | "checkbox";
-  label: React.ReactNode;
+  label: ReactNode;
   data?: Record<string, string>
 }
 
-function TuiOptionControl({
+const TuiOptionControl: FC<TuiOptionControlProps> = ({
   disabled,
   className,
   label,
   type,
   data,
   ...props
-}: TuiOptionControlProps) {
+}: TuiOptionControlProps)=> {
 
   const classMaker = () => {
     if (type === "checkbox") {

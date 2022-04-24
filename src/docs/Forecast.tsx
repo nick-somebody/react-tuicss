@@ -1,8 +1,8 @@
-import React from "react";
+import type { FC } from "react";
 import TuiProgressBar from "../components/TuiProgressBar";
 import { Color, DarkBackground, MildColor } from "../types/enums";
 
-function Forecast() {
+const Forecast: FC = () => {
   return (
     <div className="tui-screen-800-600 bordered black-255">
       <div className="red-168 full-width white-text" style={ { padding: "0px 10px" }}>

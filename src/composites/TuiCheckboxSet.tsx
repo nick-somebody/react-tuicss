@@ -1,4 +1,4 @@
-import React from "react";
+import type { ChangeEventHandler, FC, ReactNode } from "react";
 import TuiCheckbox, { TuiCheckboxProps } from "../components/TuiCheckbox";
 import TuiFieldset from "../components/TuiFieldset";
 import TuiLegend from "../components/TuiLegend";
@@ -6,18 +6,17 @@ import "./TuiCheckboxSet.css"
 
 type CheckboxValue = string | number | readonly string[];
 
-
-type TuiCheckboxSetProps = {
-  heading: React.ReactNode;
-  description?: React.ReactNode;
+interface TuiCheckboxSetProps {
+  heading: ReactNode;
+  description?: ReactNode;
   options: TuiCheckboxProps[];
   onChange?: (values: CheckboxValue[]) => void;
   values?: CheckboxValue[];
 }
 
-function TuiCheckboxSet(props: TuiCheckboxSetProps) {
+const TuiCheckboxSet: FC<TuiCheckboxSetProps> = (props: TuiCheckboxSetProps) => {
 
-  const checkboxHandler: React.ChangeEventHandler<HTMLInputElement> = ({ target }) => {
+  const checkboxHandler: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
     if (props.values === undefined || props.onChange === undefined) {
       return;
     }

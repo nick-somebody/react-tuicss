@@ -1,15 +1,15 @@
-import { InputHTMLAttributes, SelectHTMLAttributes } from "react"
+import type { FC, InputHTMLAttributes, SelectHTMLAttributes } from "react"
 import TuiInput from "../components/TuiInput"
 import TuiSelect from "../components/TuiSelect"
 import TuiTextarea from "../components/TuiTextarea"
 import "./TuiLabeledInput.css"
 
-export type TuiLabeledInputProps = InputHTMLAttributes<HTMLInputElement> & {
+export interface TuiLabeledInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: React.ReactNode;
   block?: boolean
 }
 
-export function TuiLabeledInput(props: TuiLabeledInputProps) {
+export const TuiLabeledInput: FC<TuiLabeledInputProps> = (props: TuiLabeledInputProps) => {
 
   return (
     <label htmlFor={props.id} className={ props.block ?? true ? "tui-block-label" : "" }>
@@ -19,12 +19,12 @@ export function TuiLabeledInput(props: TuiLabeledInputProps) {
   )
 }
 
-export type TuiLabeledSelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
+export interface TuiLabeledSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label: React.ReactNode;
   block?: boolean
 }
 
-export function TuiLabeledSelect(props: TuiLabeledSelectProps) {
+export const TuiLabeledSelect: FC<TuiLabeledSelectProps> = (props: TuiLabeledSelectProps) =>{
 
   return (
     <label htmlFor={props.id} className={ props.block ?? true ? "tui-block-label" : "" }>
@@ -34,12 +34,12 @@ export function TuiLabeledSelect(props: TuiLabeledSelectProps) {
   )
 }
 
-export type TuiLabeledTextareaProps = InputHTMLAttributes<HTMLTextAreaElement> & {
+export interface TuiLabeledTextareaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   label: React.ReactNode;
   block?: boolean
 }
 
-export function TuiLabeledTextarea(props: TuiLabeledTextareaProps) {
+export const TuiLabeledTextarea: FC<TuiLabeledTextareaProps> = (props: TuiLabeledTextareaProps) => {
 
   return (
     <label htmlFor={props.id} className={ props.block ?? true ? "tui-block-label" : "" }>

@@ -1,12 +1,12 @@
-import React from "react";
+import type { FC } from "react";
 import { Background, LightBackground, DarkBackground } from '../types/enums';
 
-type TuiBackgroundProps = {
+interface TuiBackgroundProps {
   color: Background | LightBackground | DarkBackground;
   children: React.ReactNode;
 }
 
-function TuiBackground({ color, children }: TuiBackgroundProps) {
+const TuiBackground: FC<TuiBackgroundProps> = ({ color, children }: TuiBackgroundProps) => {
   return (
     <div className={ color }>
       { children }

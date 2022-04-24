@@ -1,9 +1,9 @@
-import React, { HtmlHTMLAttributes } from "react";
+import type { FC, HtmlHTMLAttributes } from "react";
 
-function TuiLegend ({
+const TuiLegend: FC<HtmlHTMLAttributes<HTMLLegendElement>> = ({
   children,
   ...props
-}: HtmlHTMLAttributes<HTMLLegendElement>) {
+}: HtmlHTMLAttributes<HTMLLegendElement>) => {
   return (
     <legend {...props}>
       { children }

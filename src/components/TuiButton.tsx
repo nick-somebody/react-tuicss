@@ -1,15 +1,15 @@
-import React, { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, FC } from "react";
 import { Color, MildColor } from "../types/enums";
 import "./TuiButton.css";
 
-export type TuiButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+export interface TuiButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: Color | MildColor;
   textColor?: Color | MildColor;
   light?: boolean;
   fullWidth?: boolean;
 }
 
-function TuiButton(
+const TuiButton: FC<TuiButtonProps> = (
   {
     textColor,
     fullWidth,
@@ -18,7 +18,7 @@ function TuiButton(
     className,
     ...props
   }: TuiButtonProps
-) {
+) => {
   const getClassName = () => {
     const classes = className?.split(" ") ?? [];
     classes.push("tui-button")

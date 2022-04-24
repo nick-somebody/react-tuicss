@@ -1,21 +1,21 @@
-import React, { HtmlHTMLAttributes } from "react";
+import type { FC, HtmlHTMLAttributes } from "react";
 import { Color, MildColor } from "../types/enums";
 import "./TuiCode.css"
 
-type TuiCodeProps = HtmlHTMLAttributes<HTMLPreElement> & {
+interface TuiCodeProps extends HtmlHTMLAttributes<HTMLPreElement> {
   color?: Color | MildColor;
   textColor?: Color | MildColor;
   code: string;
 }
 
-function TuiCode (
+const TuiCode: FC<TuiCodeProps> = (
   {
     color,
     textColor,
     code,
     ...props
   }: TuiCodeProps
-) {
+) => {
 
   const getClassName = () => {
     const classes = props.className?.split(" ") ?? [];
@@ -34,7 +34,7 @@ function TuiCode (
   )
 }
 
-function TuiCodeDark(props: TuiCodeProps) {
+const TuiCodeDark: FC<TuiCodeProps> = (props: TuiCodeProps) => {
 
   return TuiCode({
     ...props,
@@ -43,7 +43,7 @@ function TuiCodeDark(props: TuiCodeProps) {
   })
 }
 
-function TuiCodeLight(props: TuiCodeProps) {
+const TuiCodeLight: FC<TuiCodeProps> =(props: TuiCodeProps) => {
 
   return TuiCode({
     ...props,

@@ -1,12 +1,12 @@
-import React, { InputHTMLAttributes } from "react";
+import type { FC, InputHTMLAttributes } from "react";
 import { inputClass } from "../helpers";
 
-function TuiTextarea({
+const TuiTextarea: FC<InputHTMLAttributes<HTMLTextAreaElement>> = ({
   disabled,
   className,
   children,
   ...props
-}: InputHTMLAttributes<HTMLTextAreaElement>) {
+}: InputHTMLAttributes<HTMLTextAreaElement>) => {
   return (
     <textarea
       disabled={ disabled }

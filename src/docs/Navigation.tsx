@@ -1,4 +1,4 @@
-import React from "react";
+import type { FC } from "react";
 import TuiMenuItem from "../components/TuiMenuItem";
 import TuiDropdown from "../composites/TuiDropdown";
 import TuiNavbar from "../composites/TuiNavbar";
@@ -7,7 +7,7 @@ import TuiWindow from "../components/TuiWindow";
 import TuiDatetime from "../composites/TuiDatetime";
 import TuiCode from "../components/TuiCode";
 
-function Navigation() {
+const Navigation: FC = () => {
 
   return (
     <>

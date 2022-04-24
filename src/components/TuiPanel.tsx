@@ -1,10 +1,10 @@
-import React, { AllHTMLAttributes } from "react";
+import type { AllHTMLAttributes, FC } from "react";
 
-type TuiPanelProps = AllHTMLAttributes<HTMLDivElement> & {
+interface TuiPanelProps extends AllHTMLAttributes<HTMLDivElement> {
   header?: string;
 }
 
-function TuiPanel({ header, children, ...props }: TuiPanelProps) {
+const TuiPanel: FC<TuiPanelProps> = ({ header, children, ...props }: TuiPanelProps) => {
   return (
     <div className="tui-panel" { ...props }>
       {

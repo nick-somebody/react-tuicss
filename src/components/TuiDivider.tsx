@@ -1,6 +1,6 @@
-import React, { HTMLAttributes } from "react";
+import type { FC, HTMLAttributes } from "react";
 
-type TuiDividerProps = HTMLAttributes<HTMLHRElement> & {
+interface TuiDividerProps extends HTMLAttributes<HTMLHRElement> {
   withSpace?: boolean
 }
 
@@ -8,7 +8,7 @@ type TuiDividerProps = HTMLAttributes<HTMLHRElement> & {
  * withSpace defaults to true
  * returns a div if withspace is false otherwise returns a hr element
  */
-function TuiDivider({ withSpace, ...props }: TuiDividerProps): JSX.Element {
+const TuiDivider: FC<TuiDividerProps> = ({ withSpace, ...props }: TuiDividerProps) => {
 
   if (withSpace === false) {
     return <div className="tui-divider" { ...props }></div>
