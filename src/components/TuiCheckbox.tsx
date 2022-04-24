@@ -1,5 +1,5 @@
 import React from "react";
-import TuiOptionControl, { TuiOptionControlProps} from "./TuiOptionControl";
+import TuiOptionControl, { TuiOptionControlProps } from "./TuiOptionControl";
 import "./TuiCheckbox.css"
 
 export type TuiCheckboxProps = Omit<TuiOptionControlProps, "type">

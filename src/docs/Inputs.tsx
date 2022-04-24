@@ -4,7 +4,7 @@ import TuiCheckboxSet from "../composites/TuiCheckboxSet";
 import TuiRadioSet from "../composites/TuiRadioSet";
 import { TuiLabeledInput, TuiLabeledSelect, TuiLabeledTextarea } from "../composites/TuiLabeledInput";
 import "./Inputs.css"
-import TuiInputSet from "../composites/TuiInputSet";
+import TuiForm from "../composites/TuiForm";
 import TuiCode from "../components/TuiCode";
 
 
@@ -17,7 +17,7 @@ function Inputs() {
     <>
       <div className="tui-window" style={{ textAlign: "left" }}>
         <h2>Inputs</h2>
-        <TuiInputSet
+        <TuiForm
           heading="Form"
         >
           <TuiLabeledInput
@@ -124,7 +124,7 @@ function Inputs() {
             className="full-width"
             type="file"
           />
-        </TuiInputSet>
+        </TuiForm>
       </div>
         <TuiCode.Dark code={ `<TuiInputSet
   heading="Form"
