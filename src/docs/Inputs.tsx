@@ -10,6 +10,8 @@ import TuiCode from "../components/TuiCode";
 
 const Inputs: FC = () => {
   const [text, setText] = useState("text");
+  const [number, setNumber] = useState(25);
+  const [color, setColor] = useState("#00FF00")
   const [checkboxVal, setCheckboxVal] = useState<number[]>([]);
   const [radioVal, setRadioVal] = useState<number>(0);
   
@@ -27,7 +29,7 @@ const Inputs: FC = () => {
           />
           <TuiLabeledInput
             label="Disabled...: "
-            value="disabled"
+            value={text}
             disabled
             onChange={({ target }) => setText(target.value)}
           />
@@ -35,18 +37,20 @@ const Inputs: FC = () => {
             label="Number.....: "
             type="number"
             step={1}
-            value={25}
-            onChange={({ target }) => setText(target.value)}
+            value={number}
+            onChange={({ target }) => setNumber(+target.value)}
           />
           <TuiLabeledInput
             label="Password...: "
             type="password"
-            value={"12345"}
+            value={text}
+            onChange={({ target }) => setText(target.value)}
           />
           <TuiLabeledInput 
             label="Color......: "
             type="color"
-            value={"#00FF00"}
+            value={color}
+            onChange={({ target }) => setColor(target.value)}
           />
           <TuiLabeledSelect
             label="Select.....: "
@@ -126,7 +130,7 @@ const Inputs: FC = () => {
           />
         </TuiForm>
       </div>
-        <TuiCode.Dark code={ `<TuiInputSet
+        <TuiCode.Dark code={ `<TuiForm
   heading="Form"
 >
   <TuiLabeledInput
@@ -136,7 +140,7 @@ const Inputs: FC = () => {
   />
   <TuiLabeledInput
     label="Disabled...: "
-    value="disabled"
+    value={text}
     disabled
     onChange={({ target }) => setText(target.value)}
   />
@@ -144,18 +148,20 @@ const Inputs: FC = () => {
     label="Number.....: "
     type="number"
     step={1}
-    value={25}
-    onChange={({ target }) => setText(target.value)}
+    value={number}
+    onChange={({ target }) => setNumber(+target.value)}
   />
   <TuiLabeledInput
     label="Password...: "
     type="password"
-    value={"12345"}
+    value={text}
+    onChange={({ target }) => setText(target.value)}
   />
   <TuiLabeledInput 
     label="Color......: "
     type="color"
-    value={"#00FF00"}
+    value={color}
+    onChange={({ target }) => setColor(target.value)}
   />
   <TuiLabeledSelect
     label="Select.....: "
@@ -233,7 +239,7 @@ const Inputs: FC = () => {
     className="full-width"
     type="file"
   />
-</TuiInputSet>` } />
+</TuiForm>` } />
   </>
   )
 }
