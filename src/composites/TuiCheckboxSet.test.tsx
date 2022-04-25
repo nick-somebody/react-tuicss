@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
+import { useState } from 'react'
 import TuiCheckboxSet from './TuiCheckboxSet'
 
 describe("TuiCheckboxSet", () => {
@@ -52,24 +53,47 @@ describe("TuiCheckboxSet", () => {
     expect(checkboxes[idx-1].checked).toBeFalsy();
   })
 
-  // test("calls onChange when checkbox clicked", () => {
-  //   const onChange = vi.fn()
-  //   const [option] = options
-  //   const values: number[] = []
-  //   render(<div>
-  //     <TuiCheckboxSet
-  //       heading="TEST"
-  //       description="TEST"
-  //       options={ options }
-  //       onChange={ onChange }
-  //       values={values} />
-  //   </div>)
-  //   const [target] = screen.getAllByRole<HTMLInputElement>("checkbox");
-  //   expect(target.checked).toBeFalsy()
+  test("skips onChange if there's no values", () => {
+    const onChange = vi.fn()
+    const idx = 0
+    render(<TuiCheckboxSet
+      heading="TEST"
+      description="TEST"
+      options={ options }
+      onChange={ onChange } />)
+    const [target] = screen.getAllByRole<HTMLInputElement>("checkbox");
+    const result = fireEvent.click(target);
+    expect(onChange).toHaveBeenCalledTimes(0)
+  })
 
-  //   const result = fireEvent.click(target);
-  //   expect(result).toBeTruthy();
-  //   expect(target.checked).toBeTruthy()
-  //   expect(onChange).toHaveBeenCalledTimes(1)
-  // })
+  // no idea how to make this work at this point
+  // it seems like this should work or even should
+  // without the FakeComponent wrapper
+  test.skip("calls onChange when checkbox clicked", () => {
+    const onChange = vi.fn()
+    const [option] = options
+    
+    const FakeComponent = () => {
+      const [values, setValues] = useState<number[]>([])
+      return <div>
+        <TuiCheckboxSet
+          heading="TEST"
+          description="TEST"
+          options={ options }
+          onChange={ (values) => {
+            setValues(values as number[]);
+            console.log(values);
+          } }
+          values={values} />
+      </div>
+    }
+    render(<FakeComponent />)
+    const [target] = screen.getAllByRole<HTMLInputElement>("checkbox");
+    expect(target.checked).toBeFalsy()
+
+    const result = fireEvent.click(target);
+    expect(result).toBeTruthy();
+    expect(target.checked).toBeTruthy()
+    expect(onChange).toHaveBeenCalledTimes(1)
+  })
 })

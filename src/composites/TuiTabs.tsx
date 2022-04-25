@@ -1,4 +1,4 @@
-import { DataHTMLAttributes, FC, useEffect, useState } from 'react';
+import { DataHTMLAttributes, FC, useCallback, useEffect, useState } from 'react';
 import { getId } from '../helpers';
 import "./TuiTabs.css";
 
@@ -18,24 +18,24 @@ const TuiTabs: FC<TabsProps> = ({ tabs, ...props }: TabsProps) => {
     setId(getId());
   }, []);
 
-  const tabDOMId = (idx: number) => `tab-${id}-control-${idx}`;
-  const tabPaneDOMId = (idx: number) => `tab-${id}-panel-${idx}`;
+  const tabDOMId = useCallback((idx: number) => `tab-${id}-control-${idx}`, [id]);
+  const tabPaneDOMId = useCallback((idx: number) => `tab-${id}-panel-${idx}`, [id]);
 
-  const isActive = (tabIdx: number) => tabIdx === activeTab;
+  const isActive = useCallback((tabIdx: number) => tabIdx === activeTab, [activeTab]);
 
-  const getClassName = (tabIdx: number) => {
+  const getClassName = useCallback((tabIdx: number) => {
     const classes = ["tui-tab"]
     if (isActive(tabIdx)) {
       classes.push("active");
     }
     return classes.join(" ");
-  }
+  }, [isActive])
 
-  const focusTab = (idx: number) => {
+  const focusTab = useCallback((idx: number) => {
     document.getElementById(`tab-${id}-control-${idx}`)?.focus();
-  }
+  }, [id])
 
-  const keyListener = (e: React.KeyboardEvent<HTMLUListElement>) => {
+  const keyListener = useCallback((e: React.KeyboardEvent<HTMLUListElement>) => {
     let newIdx: number = activeTab;
     if (e.code === "ArrowRight") {
       const nextTab = activeTab + 1
@@ -46,7 +46,7 @@ const TuiTabs: FC<TabsProps> = ({ tabs, ...props }: TabsProps) => {
     }
     setActiveTab(newIdx);
     focusTab(newIdx);
-  }
+  }, [activeTab, setActiveTab, focusTab])
 
   return (
     <div { ...props }>
@@ -73,6 +73,7 @@ const TuiTabs: FC<TabsProps> = ({ tabs, ...props }: TabsProps) => {
         tabs.map(({ tab }, idx) => (
           <div
             key={`tab-pane-${idx}`}
+            role="tabpanel"
             id={ tabPaneDOMId(idx) }
             className="tui-tab-content tui-content"
             style={ { display: isActive(idx) ? "block" : "none" } }
