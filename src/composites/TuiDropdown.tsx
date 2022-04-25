@@ -2,12 +2,18 @@ import { FC, ReactNode } from "react";
 import "./TuiDropdown.css"
 
 interface TuiDropdownProps {
+  "data-testid"?: string;
   dropDownLabel: string | ReactNode;
   children: ReactNode;
   block?: boolean;
 }
 
-const TuiDropdown: FC<TuiDropdownProps> = ({ children, dropDownLabel, block }: TuiDropdownProps) => {
+const TuiDropdown: FC<TuiDropdownProps> = ({
+  children,
+  dropDownLabel,
+  block,
+  ...props
+}: TuiDropdownProps) => {
 
   const classNameMaker = () => {
     const classes = ["tui-dropdown"]
@@ -15,7 +21,7 @@ const TuiDropdown: FC<TuiDropdownProps> = ({ children, dropDownLabel, block }: T
     return classes.join(" ");
   };
   return (
-    <li className={ classNameMaker() }>
+    <li { ...props } className={ classNameMaker() }>
       <span>{ dropDownLabel }</span>
       <div className="tui-dropdown-content">
         <ul>

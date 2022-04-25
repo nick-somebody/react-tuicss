@@ -1,12 +1,12 @@
-import type { ChangeEventHandler, FC, ReactNode } from "react";
+import { ChangeEventHandler, FC, ReactNode, useCallback } from "react";
 import TuiCheckbox, { TuiCheckboxProps } from "../components/TuiCheckbox";
 import TuiFieldset from "../components/TuiFieldset";
 import TuiLegend from "../components/TuiLegend";
 import "./TuiCheckboxSet.css"
 
 type CheckboxValue = string | number | readonly string[];
-
 interface TuiCheckboxSetProps {
+  "data-testid"?: string;
   heading: ReactNode;
   description?: ReactNode;
   options: TuiCheckboxProps[];
@@ -14,36 +14,42 @@ interface TuiCheckboxSetProps {
   values?: CheckboxValue[];
 }
 
-const TuiCheckboxSet: FC<TuiCheckboxSetProps> = (props: TuiCheckboxSetProps) => {
+const TuiCheckboxSet: FC<TuiCheckboxSetProps> = ({
+  heading,
+  description,
+  options,
+  onChange,
+  values,
+  ...props
+}: TuiCheckboxSetProps) => {
 
-  const checkboxHandler: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
-    if (props.values === undefined || props.onChange === undefined) {
+  const checkboxHandler: any = (value: CheckboxValue) => {
+    if (values === undefined || onChange === undefined) {
       return;
     }
-    const checkboxVal = props.values;
-    const value = +target.value;
-    const idx = checkboxVal.indexOf(value)
+    const idx = values.indexOf(value)
     if (idx >= 0) {
-      const copy = [...checkboxVal]
+      const copy = [...values]
       copy.splice(idx, 1)
-      props.onChange(copy)
+      onChange(copy)
     }
     else {
-      props.onChange([...checkboxVal, value]);
+      onChange([...values, value]);
     }
   }
+
   return (
-    <TuiFieldset>
-      <TuiLegend>{ props.heading}</TuiLegend>
-      { props.description && <div className="tui-checkbox-description">{ props.description }</div> }
+    <TuiFieldset { ...props}>
+      <TuiLegend>{ heading}</TuiLegend>
+      { description && <div className="tui-checkbox-description">{ description }</div> }
       {
-        props.options.map((option, idx) => (
+        options.map((option, idx) => (
           <TuiCheckbox
             key={idx}
             label={option.label}
             value={option.value}
-            onChange={checkboxHandler}
-            checked={props.values?.includes(option.value!)}
+            onChange={() => checkboxHandler(option.value) }
+            checked={values?.includes(option.value!)}
             disabled={option.disabled}
           />
         ))
