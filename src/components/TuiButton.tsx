@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, FC } from "react";
+import { ButtonHTMLAttributes, FC, useCallback } from "react";
 import { Color, MildColor } from "../types/enums";
 import "./TuiButton.css";
 
@@ -16,22 +16,23 @@ const TuiButton: FC<TuiButtonProps> = (
     light,
     color,
     className,
+    disabled,
     ...props
   }: TuiButtonProps
 ) => {
-  const getClassName = () => {
+  const getClassName = useCallback(() => {
     const classes = className?.split(" ") ?? [];
     classes.push("tui-button")
-    if (props.disabled) { classes.push("disabled"); }
+    if (disabled) { classes.push("disabled"); }
     if (color) { classes.push(color); }
     if (textColor) { classes.push(`${textColor}-text`); }
     if (light) { classes.push("light"); }
     if (fullWidth) { classes.push("fill"); }
     return classes.join(" ");
-  }
+  }, [disabled, color, textColor, light, fullWidth])
 
   return (
-    <button {...props } className={ getClassName() }>
+    <button {...props } disabled={disabled} className={ getClassName() }>
       { props.children }
       <div className="tui-button-inner">
       </div>

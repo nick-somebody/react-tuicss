@@ -1,4 +1,4 @@
-import type { FC, MouseEventHandler, ReactNode } from "react";
+import { FC, MouseEventHandler, ReactNode, useMemo } from "react";
 
 interface TuiMenuItemProps {
   children: ReactNode;
@@ -8,9 +8,9 @@ interface TuiMenuItemProps {
 
 const TuiMenuItem: FC<TuiMenuItemProps> = ({ children, onClick, href }: TuiMenuItemProps) => {
 
-  const hasClicker = !!onClick;
-  const hasLink = !!href;
-  const noClickerOrLink = !hasClicker && !hasLink;
+  const hasClicker = useMemo(() => !!onClick, [onClick]);
+  const hasLink = useMemo(() => !!href, [href]);
+  const noClickerOrLink = useMemo(() => !hasClicker && !hasLink, [hasClicker, hasLink]);
 
   return (
     <li>
