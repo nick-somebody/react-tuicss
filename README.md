@@ -24,19 +24,4 @@ I have many things I want to do with this, I will use this in my own project soo
 
 If you wish to contribute, that's good. If you have feature requests please raise issues and I will respond as time for hobby projects permits.
 
-### TODO
-- [x] tests
-- [x] github actions
-  - [x] actions
-  - [ ] deploy docs
-  - [x] publish
-- [ ] Click away to dismiss sidenav
-- [ ] more a11y checking
-- [ ] full keyboard controls for all components with focus states
-- [ ] better documentation
-- [ ] wiki
-- [ ] build a label width filler for formsets eg `Input...` how many dots to fill for a nice looking form
-- [ ] fix bios example, overflow and refactor
-- [ ] fix layout docs
-- [ ] pick linter and setup
-- [ ] make chart fill a container
+I will create a wiki or better docs eventually.
