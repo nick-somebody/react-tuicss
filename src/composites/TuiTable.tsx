@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes, TableHTMLAttributes, TdHTMLAttributes, ThHTMLAttributes, useCallback } from "react"
+import { FC, HTMLAttributes, TableHTMLAttributes, TdHTMLAttributes, ThHTMLAttributes, useMemo } from "react"
 import { TableRowColor } from "../types/enums";
 
 interface TuiTableProps extends TableHTMLAttributes<HTMLTableElement> {
@@ -14,7 +14,7 @@ export const TuiTable: FC<TuiTableProps> = ({
   ...props
 }: TuiTableProps) =>{
 
-  const classNamer = useCallback(() => {
+  const classNames = useMemo(() => {
     const classes = ["tui-table"]
     if (className) { classes.push(...className.split(" "))}
     if (hoverColor) { classes.push(`hovered-${hoverColor}`)}
@@ -23,7 +23,7 @@ export const TuiTable: FC<TuiTableProps> = ({
   }, [className, hoverColor, stripeColor])
 
   return (
-    <table { ...props } className={ classNamer() }>
+    <table { ...props } className={ classNames }>
       { children }
     </table>
   )

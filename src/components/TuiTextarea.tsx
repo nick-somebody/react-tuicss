@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes, useCallback } from "react";
+import { FC, InputHTMLAttributes, useMemo } from "react";
 import { inputClass } from "../helpers";
 
 const TuiTextarea: FC<InputHTMLAttributes<HTMLTextAreaElement>> = ({
@@ -8,13 +8,14 @@ const TuiTextarea: FC<InputHTMLAttributes<HTMLTextAreaElement>> = ({
   ...props
 }: InputHTMLAttributes<HTMLTextAreaElement>) => {
 
-  const classNames = useCallback(() => {
+  const classNames = useMemo(() => {
     return inputClass({ disabled, className })
   }, [disabled, className])
+
   return (
     <textarea
       disabled={ disabled }
-      className={ classNames() }
+      className={ classNames }
       { ...props }
     ></textarea>
   )

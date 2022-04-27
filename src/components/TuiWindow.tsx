@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes, useCallback } from "react";
+import { FC, HTMLAttributes, useMemo } from "react";
 import TuiFieldset from "./TuiFieldset";
 import TuiLegend from "./TuiLegend";
 
@@ -15,7 +15,7 @@ const TuiWindow: FC<TuiWindowProps> = ({
   ...props
 }: TuiWindowProps) => {
 
-  const classNamer = useCallback(() => {
+  const classNames = useMemo(() => {
     if (className) {
       return `tui-window ${className}`
     }
@@ -24,13 +24,13 @@ const TuiWindow: FC<TuiWindowProps> = ({
 
   if (basic) {
     return (
-      <div { ...props } className={classNamer()}>
+      <div { ...props } className={ classNames }>
         { children }
       </div>
     )
   }
   return (
-    <div { ...props } className={classNamer()}>
+    <div { ...props } className={ classNames }>
       <TuiFieldset title={ heading } role="presentation">
         { heading && <TuiLegend role="presentation">{ heading }</TuiLegend> }
         { children }

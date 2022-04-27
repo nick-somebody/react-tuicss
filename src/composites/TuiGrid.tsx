@@ -1,4 +1,4 @@
-import { FC, ReactNode, useCallback } from "react";
+import { FC, ReactNode, useMemo } from "react";
 
 interface ContainerProps {
   children: ReactNode;
@@ -33,7 +33,7 @@ interface ColProps {
 
 const Col: FC<ColProps> = ({ children, ...sizes }: ColProps) => {
 
-  const classMaker = useCallback((): string => {
+  const classNames = useMemo((): string => {
     const classes = ["col"];
     for (const key in sizes) {
       if (Object.prototype.hasOwnProperty.call(sizes, key)) {
@@ -46,7 +46,7 @@ const Col: FC<ColProps> = ({ children, ...sizes }: ColProps) => {
   }, [sizes])
 
   return (
-    <div role="presentation" className={ classMaker() }>
+    <div role="presentation" className={ classNames }>
       { children }
     </div>
   )

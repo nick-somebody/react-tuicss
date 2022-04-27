@@ -1,4 +1,4 @@
-import { DataHTMLAttributes, FC, InputHTMLAttributes, ReactNode, useCallback } from "react";
+import { FC, InputHTMLAttributes, ReactNode, useMemo } from "react";
 import { radioClass, checkboxClass } from "../helpers";
 import TuiInput from "./TuiInput";
 
@@ -18,7 +18,7 @@ const TuiOptionControl: FC<TuiOptionControlProps> = ({
   ...props
 }: TuiOptionControlProps)=> {
 
-  const classMaker = useCallback(() => {
+  const classNames = useMemo(() => {
     if (type === "checkbox") {
       return checkboxClass({ disabled, className })
     }
@@ -26,7 +26,7 @@ const TuiOptionControl: FC<TuiOptionControlProps> = ({
   }, [disabled, className])
 
   return (
-    <label { ...data } className={ classMaker() }>
+    <label { ...data } className={ classNames }>
       { label }
       <TuiInput disabled={ disabled } { ...props } type={ type } />
       <span className={ disabled ? 'disabled' : '' }></span>

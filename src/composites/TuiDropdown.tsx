@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useMemo } from "react";
 import "./TuiDropdown.css"
 
 interface TuiDropdownProps {
@@ -15,13 +15,14 @@ const TuiDropdown: FC<TuiDropdownProps> = ({
   ...props
 }: TuiDropdownProps) => {
 
-  const classNameMaker = () => {
+  const classNames = useMemo(() => {
     const classes = ["tui-dropdown"]
     if (block) { classes.push("block"); }
     return classes.join(" ");
-  };
+  }, [block]);
+
   return (
-    <li { ...props } className={ classNameMaker() }>
+    <li { ...props } className={ classNames }>
       <span>{ dropDownLabel }</span>
       <div className="tui-dropdown-content">
         <ul>

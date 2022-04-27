@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes, useCallback } from "react";
+import { FC, InputHTMLAttributes, useMemo } from "react";
 import { inputClass } from "../helpers";
 
 const TuiInput: FC<InputHTMLAttributes<HTMLInputElement>> = ({
@@ -7,14 +7,14 @@ const TuiInput: FC<InputHTMLAttributes<HTMLInputElement>> = ({
   type,
   ...props
 }: InputHTMLAttributes<HTMLInputElement>) =>{
-  const classNames = useCallback(() => {
+  const classNames = useMemo(() => {
     return inputClass({ disabled, className })
   }, [disabled, className])
   return (
     <input
       type={ type ?? "text" }
       disabled={ disabled }
-      className={ classNames() }
+      className={ classNames }
       {...props}
     />
   )

@@ -1,4 +1,4 @@
-import type { DataHTMLAttributes, FC } from "react";
+import { DataHTMLAttributes, FC, useCallback, useMemo } from "react";
 import { ChartColor } from "../types/enums";
 
 interface ChartProps extends DataHTMLAttributes<HTMLDivElement> {
@@ -35,9 +35,22 @@ const VerticalChart: FC<ChartProps> = ({
   maxValue,
   ...props
 }: ChartProps) => {
+
+  const displayClassName = useMemo(() => {
+    return getDisplayClassName(!!labels)
+  }, [labels])
+
+  const scaler =  useCallback((value: number) => {
+    return (valueScaler ?? defaultScaler)(value)
+  }, [valueScaler])
+
+  const formatter =  useCallback((value: number) => {
+    return (valueFormatter ?? defaultScaler)(value)
+  }, [valueFormatter])
+
   return (
     <div className="tui-chart-vertical" style={ size } { ...props }>
-      <div className={ getDisplayClassName(!!labels) }>
+      <div className={ displayClassName }>
         { values.map(({ label, value }, idx) => (
           <div
             role="meter"
@@ -45,13 +58,13 @@ const VerticalChart: FC<ChartProps> = ({
             aria-valuenow={ value }
             aria-valuemin={minValue ?? 0}
             aria-valuemax={maxValue ?? 100}
-            aria-valuetext={ (valueFormatter ?? defaultScaler)(value) }
+            aria-valuetext={ formatter(value) }
             aria-label={label}
             key={ `value-shape-${idx}` }
             className={ getClassName(idx) }
-            style={ { height: (valueScaler ?? defaultScaler)(value) } }
+            style={ { height: scaler(value) } }
           >
-            { (valueFormatter ?? defaultScaler)(value) }
+            { formatter(value) }
           </div>
         )) }
       </div>
@@ -87,9 +100,21 @@ function HorizontalChart({
   ...props
 }: ChartProps) {
 
+  const displayClassName = useMemo(() => {
+    return getDisplayClassName(!!labels)
+  }, [labels])
+
+  const scaler =  useCallback((value: number) => {
+    return (valueScaler ?? defaultScaler)(value)
+  }, [valueScaler])
+
+  const formatter =  useCallback((value: number) => {
+    return (valueFormatter ?? defaultScaler)(value)
+  }, [valueFormatter])
+
   return (
     <div className="tui-chart-horizontal" style={ size } { ...props }>
-      <div className={ getDisplayClassName(!!labels) }>
+      <div className={ displayClassName }>
         { values.map(({ value, label }, idx) => (
           <div
             role="meter"
@@ -97,13 +122,13 @@ function HorizontalChart({
             aria-valuenow={ value }
             aria-valuemin={minValue ?? 0}
             aria-valuemax={maxValue ?? 100}
-            aria-valuetext={ (valueFormatter ?? defaultScaler)(value) }
+            aria-valuetext={ formatter(value) }
             aria-label={label}
             key={ `value-shape-${idx}` }
             className={ getClassName(idx) }
-            style={ { width: (valueScaler ?? defaultScaler)(value) } }
+            style={ { width: scaler(value) } }
           >
-            { (valueFormatter ?? defaultScaler)(value) }
+            { formatter(value) }
           </div>
         )) }
       </div>
