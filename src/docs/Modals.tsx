@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import TuiModal from "../composites/TuiModal";
 import { useModal } from "../hooks/useModal";
+import TuiButton from "../components/TuiButton";
 
 const Modals: FC<{ parent?: HTMLElement }> = ({ parent }) => {
 
@@ -13,7 +14,7 @@ const Modals: FC<{ parent?: HTMLElement }> = ({ parent }) => {
         content
       </TuiModal>
 
-      <button type="button" onClick={open}>Hooky</button>
+      <TuiButton onClick={open}>Hooky</TuiButton>
       <Dialog modalTitle="asdasdadasd">
         hooky
       </Dialog>
