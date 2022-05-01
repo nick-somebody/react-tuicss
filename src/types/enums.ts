@@ -86,3 +86,8 @@ export enum TableRowColor {
   White = "white",
   Orange = "orange",
 }
+export enum ScreenSize {
+  Small = "tui-screen-640-480",
+  Med = "tui-screen-800-600",
+  Large = "tui-screen-1024-768",
+}
