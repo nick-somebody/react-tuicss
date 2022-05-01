@@ -15,7 +15,7 @@ const TuiMenuItem: FC<TuiMenuItemProps> = ({ children, onClick, href }: TuiMenuI
   return (
     <li>
       { hasClicker && <button onClick={ onClick }>{ children }</button>}
-      { hasLink && <a href={href}>{ children }</a>}
+      { hasLink && <a href={href} target="_blank">{ children }</a>}
       { noClickerOrLink && <div>{ children }</div>}
     </li>
   )
