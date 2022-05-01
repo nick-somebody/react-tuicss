@@ -1,0 +1,7 @@
+a.tui-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+a.tui-link:hover {
+  color: rgb(150,180,255);
+}
