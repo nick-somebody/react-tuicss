@@ -1,5 +1,4 @@
-import { FC, useRef, ReactNode, useState } from "react";
-import { createPortal } from "react-dom";
+import { FC, ReactNode, useState, useEffect, useMemo } from "react";
 import "./TuiSidenav.css";
 
 interface TuiSidenavProps {
@@ -10,24 +9,34 @@ interface TuiSidenavProps {
 const TuiSidenav: FC<TuiSidenavProps> = ({ children, buttonText }: TuiSidenavProps) => {
 
   const [active, setActive] = useState(false)
-  const ref = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    const listener = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActive(false)
+      }
+    }
+    window.addEventListener("keydown", listener, false)
+    return () => window.removeEventListener("keydown", listener)
+  }, [active])
+
+  const classnames = useMemo(() => {
+    const classes = ["tui-sidenav", "absolute"]
+    if (active) { classes.push("active")}
+    return classes.join(" ")
+  }, [active])
 
   return (
     <li className="tui-sidenav-li">
       <button
         className="tui-sidenav-button"
         onClick={() => setActive(!active)}
-        ref={ref}
       >{ active ? 'x' : '≡'}{ buttonText }</button>
-      { active && createPortal((
-        <nav className="tui-sidenav active absolute">
-          <ul>
-            { children }
-          </ul>
-        </nav>
-        ),
-        ref.current?.parentElement ?? document.body
-      )}
+      <nav className={ classnames }>
+        <ul>
+          { children }
+        </ul>
+      </nav>
     </li>
   )
 }

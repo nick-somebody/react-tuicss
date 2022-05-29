@@ -1,5 +1,4 @@
 import { AnchorHTMLAttributes, FC, useMemo } from "react";
-
 import "./TuiLink.css"
 
 interface TuiLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {}
