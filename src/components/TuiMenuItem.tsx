@@ -1,5 +1,4 @@
 import { DataHTMLAttributes, FC, MouseEventHandler, ReactNode, useCallback, useEffect, useMemo } from "react";
-import { Key } from "ts-key-enum";
 
 type Chords = Pick<KeyboardEvent, "altKey" | "shiftKey" | "metaKey" | "ctrlKey">
 type LIAttributes = Omit<DataHTMLAttributes<HTMLLIElement>, "onClick">
@@ -8,7 +7,7 @@ interface TuiMenuItemProps extends LIAttributes, Partial<Chords> {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   action?: () => void;
   href?: string;
-  keyPress?: string | Key;
+  keyPress?: string;
   prevent?: boolean;
   stop?: boolean;
 }
