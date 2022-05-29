@@ -1,0 +1,13 @@
+.tui-grid {
+  background-color: #FFFFFF;
+  display: grid;
+  gap: 2px;
+  padding: 2px;
+  grid-auto-flow: row dense;
+}
+.tui-grid.column {
+  grid-auto-flow: column dense;
+}
+.tui-grid > .tui-grid-block {
+  background-color: #00A8A8;
+}

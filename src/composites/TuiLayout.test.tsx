@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import TuiGrid from './TuiGrid'
+import TuiGrid from './TuiLayout'
 
 describe("TuiGrid", () => {
   describe("Container", () => {
