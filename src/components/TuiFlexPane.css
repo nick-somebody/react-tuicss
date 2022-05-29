@@ -1,0 +1,36 @@
+/* pivot this to css grid */
+.tui-flex-pane {
+  display: flex;
+  background-color: red;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+.tui-flex-pane.vertical {
+  flex-direction: column;
+}
+.tui-flex-pane > div {
+  background-color: green;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+.tui-flex-pane .tui-flex-pane.vertical {
+  border-top: none;
+  border-bottom: none;
+}
+.tui-flex-pane.vertical .tui-flex-pane {
+  border-left: none;
+  border-right: none;
+}
+
+.tui-flex-pane.vertical > div {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid white;
+}
+.tui-flex-pane.vertical > div:first-of-type {
+  border-top: none;
+}
+.tui-flex-pane.vertical > div:last-of-type {
+  border-bottom: none;
+}
