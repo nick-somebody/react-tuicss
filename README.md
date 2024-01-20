@@ -25,3 +25,14 @@ I have many things I want to do with this, I will use this in my own project soo
 If you wish to contribute, that's good. If you have feature requests please raise issues and I will respond as time for hobby projects permits.
 
 I will create a wiki or better docs eventually.
+
+## Release process
+
+- Get changes into master, PR
+- Manual check the commit messages since last release for type of version bump (may automate in future)
+- Run command for type of bump, one of:
+  - `npm run bump:patch`
+  - `npm run bump:minor`
+  - `npm run bump:major`
+- Run `npm run release` (may automate in future)
+- Approve release in github UI
