@@ -1,6 +1,6 @@
 {
   "name": "react-tuicss",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "files": [
     "dist"
   ],
@@ -31,22 +31,22 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
-    "date-fns": "~2.28.0",
-    "react": "~17.0.2",
-    "react-dom": "~17.0.2",
-    "tuicss": "~2.1.1"
+    "date-fns": "~3.3.0",
+    "react": "~18.2.0",
+    "react-dom": "~18.2.0",
+    "tuicss": "~2.1.2"
   },
   "devDependencies": {
-    "@testing-library/react": "~12.1.4",
-    "@types/node": "~17.0.21",
-    "@types/react": "~17.0.33",
-    "@types/react-dom": "~17.0.10",
-    "@vitejs/plugin-react": "~1.0.7",
-    "@vitest/ui": "~0.7.13",
-    "c8": "~7.11.0",
-    "happy-dom": "~2.50.0",
-    "typescript": "~4.5.4",
-    "vite": "~2.9.16",
-    "vitest": "~0.7.13"
+    "@testing-library/react": "~14.1.2",
+    "@types/node": "~20.11.5",
+    "@types/react": "~18.2.48",
+    "@types/react-dom": "~18.2.18",
+    "@vitejs/plugin-react": "~4.2.1",
+    "@vitest/ui": "~1.2.1",
+    "c8": "~9.1.0",
+    "happy-dom": "~13.2.0",
+    "typescript": "~5.3.3",
+    "vite": "~5.0.12",
+    "vitest": "~1.2.1"
   }
 }

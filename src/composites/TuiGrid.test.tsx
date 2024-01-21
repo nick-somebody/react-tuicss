@@ -5,7 +5,7 @@ describe("TuiGrid", () => {
   describe("Container", () => {
     test("renders with container class", () => {
       render(<TuiGrid.Container >
-
+        <span></span>
       </TuiGrid.Container>)
       const col = screen.getByRole("presentation")
       expect(col.classList.contains("container")).toBeTruthy()
@@ -14,7 +14,7 @@ describe("TuiGrid", () => {
   describe("Row", () => {
     test("renders with row class", () => {
       render(<TuiGrid.Row >
-
+        <span></span>
       </TuiGrid.Row>)
       const col = screen.getByRole("presentation")
       expect(col.classList.contains("row")).toBeTruthy()
@@ -23,7 +23,7 @@ describe("TuiGrid", () => {
   describe("Col", () => {
     test("renders with col class", () => {
       render(<TuiGrid.Col >
-  
+        <span></span>
       </TuiGrid.Col>)
       const col = screen.getByRole("presentation")
       expect(col.classList.contains("col")).toBeTruthy()
@@ -34,7 +34,7 @@ describe("TuiGrid", () => {
         s={ { width: 1 } }
         m={ { width: 2 } }
         l={ { width: 3 } }>
-  
+        <span></span>
       </TuiGrid.Col>)
       const col = screen.getByRole("presentation")
       expect(col.classList.contains("s1")).toBeTruthy()
@@ -47,7 +47,7 @@ describe("TuiGrid", () => {
         s={ { offset: 1 } }
         m={ { offset: 2 } }
         l={ { offset: 3 } }>
-  
+        <span></span>
       </TuiGrid.Col>)
       const col = screen.getByRole("presentation")
       expect(col.classList.contains("offset-s1")).toBeTruthy()

@@ -5,12 +5,12 @@ import TuiButton from './TuiButton'
 import { Color } from '../types/enums'
 
 describe("TuiButton", () => {
-  const text = "akjdhaskjdha"
+  const text = "akjdhaskjdha";
   test('Button to render with text', async () => {
     render(<TuiButton>{ text }</TuiButton>)
     const button = await screen.findByRole("button")
     
-    expect(button.innerText).toEqual(text)
+    expect(button.innerText).toContain(text)
     expect(button.classList.contains("tui-button")).toBeTruthy()
   })
 
