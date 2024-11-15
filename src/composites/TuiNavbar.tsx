@@ -5,7 +5,7 @@ import { Position } from "../types/enums";
 interface TuiNavbarProps {
   sidenav?: ReactNode;
   children: ReactNode;
-  position?: Position
+  position?: Position;
 }
 
 const TuiNavbar: FC<TuiNavbarProps> = ({ sidenav, children, position }: TuiNavbarProps) => {
