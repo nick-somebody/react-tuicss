@@ -5,6 +5,7 @@ const TuiTextarea: FC<InputHTMLAttributes<HTMLTextAreaElement>> = ({
   disabled,
   className,
   children,
+  onChange,
   ...props
 }: InputHTMLAttributes<HTMLTextAreaElement>) => {
 
@@ -16,6 +17,8 @@ const TuiTextarea: FC<InputHTMLAttributes<HTMLTextAreaElement>> = ({
     <textarea
       disabled={ disabled }
       className={ classNames }
+      onChange={onChange}
+      readOnly={!onChange}
       { ...props }
     ></textarea>
   )

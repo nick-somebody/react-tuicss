@@ -5,6 +5,7 @@ const TuiInput: FC<InputHTMLAttributes<HTMLInputElement>> = ({
   disabled,
   className,
   type,
+  onChange,
   ...props
 }: InputHTMLAttributes<HTMLInputElement>) =>{
   const classNames = useMemo(() => {
@@ -15,6 +16,8 @@ const TuiInput: FC<InputHTMLAttributes<HTMLInputElement>> = ({
       type={ type ?? "text" }
       disabled={ disabled }
       className={ classNames }
+      onChange={onChange}
+      readOnly={!onChange}
       {...props}
     />
   )
