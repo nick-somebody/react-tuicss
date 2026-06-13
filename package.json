@@ -6,6 +6,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nick-somebody/react-tuicss.git"
+  },
   "types": "./dist/types/lib/main.d.ts",
   "main": "./dist/react-tuicss.umd.js",
   "module": "./dist/react-tuicss.es.js",
